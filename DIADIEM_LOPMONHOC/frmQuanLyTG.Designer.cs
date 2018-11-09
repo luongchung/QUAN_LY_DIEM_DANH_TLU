@@ -1,6 +1,6 @@
 ﻿namespace DIADIEM_LOPMONHOC
 {
-    partial class frmQuanLyDiaDiem
+    partial class frmQuanLyTG
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyDiaDiem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyTG));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnNap = new DevExpress.XtraBars.BarButtonItem();
@@ -188,32 +188,39 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Tên địa điểm";
-            this.gridColumn3.FieldName = "TenDiaDiem";
+            this.gridColumn3.Caption = "Tiết";
+            this.gridColumn3.FieldName = "TenTiet";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 0;
             this.gridColumn3.Width = 291;
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Khu nhà";
-            this.gridColumn6.FieldName = "KhuNha";
+            this.gridColumn6.Caption = "Thời gian bắt đầu";
+            this.gridColumn6.DisplayFormat.FormatString = "hh:mm tt";
+            this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn6.FieldName = "ThoiGianBatDau";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 1;
             this.gridColumn6.Width = 310;
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Ghi chú";
-            this.gridColumn7.FieldName = "Ghi Chú";
+            this.gridColumn7.Caption = "Thời gian kết thúc";
+            this.gridColumn7.DisplayFormat.FormatString = "hh:mm tt";
+            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn7.FieldName = "ThoiGianKetThuc";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 2;
             this.gridColumn7.Width = 386;
             // 
-            // frmQuanLyDiaDiem
+            // frmQuanLyTG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -223,8 +230,8 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "frmQuanLyDiaDiem";
-            this.Text = "Quản lý địa điểm";
+            this.Name = "frmQuanLyTG";
+            this.Text = "Quản lý thời gian tiết học";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMain)).EndInit();

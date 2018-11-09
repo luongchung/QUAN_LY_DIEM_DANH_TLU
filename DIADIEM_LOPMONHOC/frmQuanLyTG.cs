@@ -11,10 +11,10 @@ using HeThong;
 
 namespace DIADIEM_LOPMONHOC
 {
-    public partial class frmQuanLyDiaDiem : DevExpress.XtraEditors.XtraForm
+    public partial class frmQuanLyTG : DevExpress.XtraEditors.XtraForm
     {
         DatabaseDataContext db;
-        public frmQuanLyDiaDiem()
+        public frmQuanLyTG()
         {
             InitializeComponent();
             db = new DatabaseDataContext();
@@ -23,13 +23,13 @@ namespace DIADIEM_LOPMONHOC
         private void loadNV()
         {
             //HeThong.Func.PhanQuyen.phanQuyenBarManager(this,HeThong.Common.User, barManager1);
-            gcMain.DataSource =(from a in db.DiaDiemHocs
+            gcMain.DataSource =(from a in db.ThoiGianTietHocs
                                 select new
                                 {
                                     a.ID,
-                                    a.TenDiaDiem,
-                                    a.KhuNha,
-                                    a.GhiChu
+                                    a.TenTiet,
+                                    a.ThoiGianBatDau,
+                                    a.ThoiGianKetThuc
                                 }
                               ).ToList();
         }
@@ -45,7 +45,7 @@ namespace DIADIEM_LOPMONHOC
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var f = new frmAddDiaDiem();
+            var f = new frmAddTG();
             f.ID = null;
             f.ShowDialog();
             if (f.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -60,7 +60,7 @@ namespace DIADIEM_LOPMONHOC
                 MessageBox.Show("Bạn chưa chọn vào hàng cần sửa, vui lòng chọn.");
                 return;
             }
-            var f = new frmAddDiaDiem();
+            var f = new frmAddTG();
             f.ID = id;
             f.ShowDialog();
             if (f.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -79,8 +79,8 @@ namespace DIADIEM_LOPMONHOC
                 DialogResult f = Thongbao._CauHoi();
                 if (f == System.Windows.Forms.DialogResult.Yes)
                 {
-                    var delete = (from a in db.Khoas where a.ID == (int)id_tmp select a).Single();
-                    db.Khoas.DeleteOnSubmit(delete);
+                    var delete = (from a in db.ThoiGianTietHocs where a.ID == (int)id_tmp select a).Single();
+                    db.ThoiGianTietHocs.DeleteOnSubmit(delete);
                     try { db.SubmitChanges(); }
                     catch (Exception) { MessageBox.Show("Xóa không thành công, vui lòng kiểm tra lại."); }
                     loadNV();

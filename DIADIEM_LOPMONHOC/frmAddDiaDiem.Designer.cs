@@ -32,66 +32,66 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTenKhoa = new System.Windows.Forms.TextBox();
-            this.txtSDT = new System.Windows.Forms.TextBox();
-            this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
+            this.txtTenDiaDiem = new System.Windows.Forms.TextBox();
+            this.txtKhuNha = new System.Windows.Forms.TextBox();
+            this.txtGhiChu = new DevExpress.XtraEditors.MemoEdit();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnDong = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 39);
+            this.label2.Location = new System.Drawing.Point(25, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 25);
+            this.label2.Size = new System.Drawing.Size(135, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Tên khoa";
+            this.label2.Text = "Tên địa điểm";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(73, 75);
+            this.label5.Location = new System.Drawing.Point(70, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 25);
+            this.label5.Size = new System.Drawing.Size(90, 25);
             this.label5.TabIndex = 4;
-            this.label5.Text = "SĐT";
+            this.label5.Text = "Khu nhà";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(47, 116);
+            this.label6.Location = new System.Drawing.Point(83, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 25);
+            this.label6.Size = new System.Drawing.Size(84, 25);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Địa chỉ";
+            this.label6.Text = "Ghi chú";
             // 
-            // txtTenKhoa
+            // txtTenDiaDiem
             // 
-            this.txtTenKhoa.Location = new System.Drawing.Point(147, 36);
-            this.txtTenKhoa.Name = "txtTenKhoa";
-            this.txtTenKhoa.Size = new System.Drawing.Size(394, 33);
-            this.txtTenKhoa.TabIndex = 7;
+            this.txtTenDiaDiem.Location = new System.Drawing.Point(183, 44);
+            this.txtTenDiaDiem.Name = "txtTenDiaDiem";
+            this.txtTenDiaDiem.Size = new System.Drawing.Size(394, 33);
+            this.txtTenDiaDiem.TabIndex = 7;
             // 
-            // txtSDT
+            // txtKhuNha
             // 
-            this.txtSDT.Location = new System.Drawing.Point(146, 75);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(394, 33);
-            this.txtSDT.TabIndex = 9;
+            this.txtKhuNha.Location = new System.Drawing.Point(182, 83);
+            this.txtKhuNha.Name = "txtKhuNha";
+            this.txtKhuNha.Size = new System.Drawing.Size(394, 33);
+            this.txtKhuNha.TabIndex = 9;
             // 
-            // txtDiaChi
+            // txtGhiChu
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(147, 114);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(394, 96);
-            this.txtDiaChi.TabIndex = 10;
+            this.txtGhiChu.Location = new System.Drawing.Point(183, 122);
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(394, 96);
+            this.txtGhiChu.TabIndex = 10;
             // 
             // btnLuu
             // 
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(146, 233);
+            this.btnLuu.Location = new System.Drawing.Point(182, 241);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(248, 66);
             this.btnLuu.TabIndex = 14;
@@ -101,7 +101,7 @@
             // btnDong
             // 
             this.btnDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.ImageOptions.Image")));
-            this.btnDong.Location = new System.Drawing.Point(410, 233);
+            this.btnDong.Location = new System.Drawing.Point(446, 241);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(131, 66);
             this.btnDong.TabIndex = 15;
@@ -115,9 +115,9 @@
             this.ClientSize = new System.Drawing.Size(627, 340);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.txtDiaChi);
-            this.Controls.Add(this.txtSDT);
-            this.Controls.Add(this.txtTenKhoa);
+            this.Controls.Add(this.txtGhiChu);
+            this.Controls.Add(this.txtKhuNha);
+            this.Controls.Add(this.txtTenDiaDiem);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
@@ -125,7 +125,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm / Sửa địa điểm";
             this.Load += new System.EventHandler(this.frmAddNhanVien_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,9 +135,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTenKhoa;
-        private System.Windows.Forms.TextBox txtSDT;
-        private DevExpress.XtraEditors.MemoEdit txtDiaChi;
+        private System.Windows.Forms.TextBox txtTenDiaDiem;
+        private System.Windows.Forms.TextBox txtKhuNha;
+        private DevExpress.XtraEditors.MemoEdit txtGhiChu;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.SimpleButton btnDong;
     }

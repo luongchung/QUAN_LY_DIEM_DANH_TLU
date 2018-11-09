@@ -8,29 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeThong;
+using DevExpress.XtraScheduler;
 
 namespace DIADIEM_LOPMONHOC
 {
-    public partial class frmAddDiaDiem : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddTG : DevExpress.XtraEditors.XtraForm
     {
         public int? ID { get; set; }
-        private DiaDiemHoc obj;
+        private ThoiGianTietHoc obj;
         private DatabaseDataContext db;
-        public frmAddDiaDiem()
+        public frmAddTG()
         {
             InitializeComponent();
             db = new DatabaseDataContext();
-            obj = new DiaDiemHoc();
+            obj = new ThoiGianTietHoc();
         }
 
         private void frmAddNhanVien_Load(object sender, EventArgs e)
         { 
             if (ID != null)
             {
-                obj = db.DiaDiemHocs.Single(p => p.ID == ID);
-                txtTenDiaDiem.Text = obj.TenDiaDiem;
-                txtKhuNha.Text = obj.KhuNha;
-                txtGhiChu.Text = obj.GhiChu;
+                obj = db.ThoiGianTietHocs.Single(p => p.ID == ID);
+                nudTiet.Value = (int)obj.TenTiet;
+                teBatDau.EditValue = obj.ThoiGianBatDau;
+                teKetThuc.EditValue = obj.ThoiGianKetThuc;
             }
          
         }
@@ -39,12 +40,12 @@ namespace DIADIEM_LOPMONHOC
         {
             if (ID == null)
             {
-        
+            
                 if (checkvali_null()) return;
-                obj.TenDiaDiem = txtTenDiaDiem.Text;
-                obj.KhuNha = txtKhuNha.Text;
-                obj.GhiChu = txtGhiChu.Text;
-                db.DiaDiemHocs.InsertOnSubmit(obj);
+                obj.TenTiet = (int)nudTiet.Value;
+                obj.ThoiGianBatDau = (DateTime)teBatDau.EditValue;
+                obj.ThoiGianKetThuc = (DateTime)teKetThuc.EditValue;
+                db.ThoiGianTietHocs.InsertOnSubmit(obj);
                 try
                 {
                     db.SubmitChanges();
@@ -59,9 +60,9 @@ namespace DIADIEM_LOPMONHOC
             else
             {
                 if (checkvali_null()) return;
-                obj.TenDiaDiem = txtTenDiaDiem.Text;
-                obj.KhuNha = txtKhuNha.Text;
-                obj.GhiChu = txtGhiChu.Text;
+                obj.TenTiet = (int)nudTiet.Value;
+                obj.ThoiGianBatDau = (DateTime)teBatDau.EditValue;
+                obj.ThoiGianKetThuc = (DateTime)teKetThuc.EditValue;
                 try
                 {
                     db.SubmitChanges();
@@ -76,7 +77,7 @@ namespace DIADIEM_LOPMONHOC
         }
         private bool checkvali_null()
         {
-            if (String.IsNullOrEmpty(txtTenDiaDiem.Text))
+            if (String.IsNullOrEmpty(nudTiet.Text))
             {
                 HeThong.Thongbao.Canhbao("Bạn chưa nhập tên địa điểm. xin mời nhập !");
                 return true;

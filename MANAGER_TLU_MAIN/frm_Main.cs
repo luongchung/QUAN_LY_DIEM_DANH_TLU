@@ -21,7 +21,7 @@ namespace AppMain
             InitializeComponent();
             db = new DatabaseDataContext();
             // LoadForm(new frm_ShowMain()); 
-            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyDiaDiem());
+            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyTG());
         }
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
