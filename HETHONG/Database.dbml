@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbtlu" Class="DatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-M6PM7KP\SQLEXPRESS;Initial Catalog=dbtlu;Integrated Security=True" SettingsObjectName="HeThong.Properties.Settings" SettingsPropertyName="linqketnoi" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ThoiGianTietHoc" Member="ThoiGianTietHocs">
+    <Type Name="ThoiGianTietHoc">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SoTiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThoiGianBatDau" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ThoiGianKetThuc" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="ThoiGianTietHoc_LopMonHoc" Member="LopMonHocs" ThisKey="ID" OtherKey="TietBatDau" Type="LopMonHoc" />
+      <Association Name="ThoiGianTietHoc_LopMonHoc1" Member="LopMonHocs1" ThisKey="ID" OtherKey="TietKetThuc" Type="LopMonHoc" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiaDiemHoc" Member="DiaDiemHocs">
+    <Type Name="DiaDiemHoc">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDiaDiem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DiaDiemHoc_LopMonHoc" Member="LopMonHocs" ThisKey="ID" OtherKey="IDDiaDiemHoc" Type="LopMonHoc" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiemDanh" Member="DiemDanhs">
+    <Type Name="DiemDanh">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDSinhVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDLopMonHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DenLop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BoTiet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThoiGianDenLop" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="LopMonHoc_DiemDanh" Member="LopMonHoc" ThisKey="IDLopMonHoc" OtherKey="ID" Type="LopMonHoc" IsForeignKey="true" />
+      <Association Name="SinhVien_DiemDanh" Member="SinhVien" ThisKey="IDSinhVien" OtherKey="ID" Type="SinhVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GroupID" Member="GroupIDs">
+    <Type Name="GroupID">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DienGiai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="GroupID_pqAccessRight" Member="pqAccessRights" ThisKey="ID" OtherKey="GroupID" Type="pqAccessRight" />
+      <Association Name="GroupID_pqNhomNhanVien" Member="pqNhomNhanViens" ThisKey="ID" OtherKey="GroupID" Type="pqNhomNhanVien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Khoa" Member="Khoas">
+    <Type Name="Khoa">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="Khoa_NhanVien" Member="NhanViens" ThisKey="ID" OtherKey="IDKhoa" Type="NhanVien" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LopMonHoc" Member="LopMonHocs">
+    <Type Name="LopMonHoc">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLopMonHoc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SoTinChi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongSoBuoiHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDGiangVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IDDiaDiemHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TietBatDau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TietKetThuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="LopMonHoc_DiemDanh" Member="DiemDanhs" ThisKey="ID" OtherKey="IDLopMonHoc" Type="DiemDanh" />
+      <Association Name="LopMonHoc_SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs" ThisKey="ID" OtherKey="IDLopMonHoc" Type="SinhVien_LopMonHoc" />
+      <Association Name="DiaDiemHoc_LopMonHoc" Member="DiaDiemHoc" ThisKey="IDDiaDiemHoc" OtherKey="ID" Type="DiaDiemHoc" IsForeignKey="true" />
+      <Association Name="ThoiGianTietHoc_LopMonHoc" Member="ThoiGianTietHoc" ThisKey="TietBatDau" OtherKey="ID" Type="ThoiGianTietHoc" IsForeignKey="true" />
+      <Association Name="ThoiGianTietHoc_LopMonHoc1" Member="ThoiGianTietHoc1" ThisKey="TietKetThuc" OtherKey="ID" Type="ThoiGianTietHoc" IsForeignKey="true" />
+      <Association Name="NhanVien_LopMonHoc" Member="NhanVien" ThisKey="IDGiangVien" OtherKey="ID" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaNV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Tuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="IDKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDLoaiNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsLock" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="NhanVien_LopMonHoc" Member="LopMonHocs" ThisKey="ID" OtherKey="IDGiangVien" Type="LopMonHoc" />
+      <Association Name="NhanVien_pqNhomNhanVien" Member="pqNhomNhanViens" ThisKey="ID" OtherKey="MaNV" Type="pqNhomNhanVien" />
+      <Association Name="Khoa_NhanVien" Member="Khoa" ThisKey="IDKhoa" OtherKey="ID" Type="Khoa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pqAccessRight" Member="pqAccessRights">
+    <Type Name="pqAccessRight">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsAccessRight" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="GroupID_pqAccessRight" Member="GroupID1" ThisKey="GroupID" OtherKey="ID" Type="GroupID" IsForeignKey="true" />
+      <Association Name="pqModule_pqAccessRight" Member="pqModule" ThisKey="ModuleID" OtherKey="ID" Type="pqModule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pqForm" Member="pqForms">
+    <Type Name="pqForm">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FormName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DienGiai" Type="System.String" DbType="NChar(500)" CanBeNull="true" />
+      <Association Name="pqForm_pqModule_FormControl" Member="pqModule_FormControls" ThisKey="ID" OtherKey="FormID" Type="pqModule_FormControl" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pqModule" Member="pqModules">
+    <Type Name="pqModule">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DienGiai" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IDCha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="pqModule_pqAccessRight" Member="pqAccessRights" ThisKey="ID" OtherKey="ModuleID" Type="pqAccessRight" />
+      <Association Name="pqModule_pqModule_FormControl" Member="pqModule_FormControls" ThisKey="ID" OtherKey="ModuleID" Type="pqModule_FormControl" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pqModule_FormControl" Member="pqModule_FormControls">
+    <Type Name="pqModule_FormControl">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModuleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FormID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ControlName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="pqForm_pqModule_FormControl" Member="pqForm" ThisKey="FormID" OtherKey="ID" Type="pqForm" IsForeignKey="true" />
+      <Association Name="pqModule_pqModule_FormControl" Member="pqModule" ThisKey="ModuleID" OtherKey="ID" Type="pqModule" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pqNhomNhanVien" Member="pqNhomNhanViens">
+    <Type Name="pqNhomNhanVien">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GroupID_pqNhomNhanVien" Member="GroupID1" ThisKey="GroupID" OtherKey="ID" Type="GroupID" IsForeignKey="true" />
+      <Association Name="NhanVien_pqNhomNhanVien" Member="NhanVien" ThisKey="MaNV" OtherKey="ID" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs">
+    <Type Name="SinhVien_LopMonHoc">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDSinhVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDLopMonHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="LopMonHoc_SinhVien_LopMonHoc" Member="LopMonHoc" ThisKey="IDLopMonHoc" OtherKey="ID" Type="LopMonHoc" IsForeignKey="true" />
+      <Association Name="SinhVien_SinhVien_LopMonHoc" Member="SinhVien" ThisKey="IDSinhVien" OtherKey="ID" Type="SinhVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SinhVien" Member="SinhViens">
+    <Type Name="SinhVien">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenSV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IDKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Anh" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="SinhVien_DiemDanh" Member="DiemDanhs" ThisKey="ID" OtherKey="IDSinhVien" Type="DiemDanh" />
+      <Association Name="SinhVien_SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs" ThisKey="ID" OtherKey="IDSinhVien" Type="SinhVien_LopMonHoc" />
+    </Type>
+  </Table>
+  <Function Name="dbo.AccessRightInsert" Method="AccessRightInsert">
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.spUpdatePqAccess" Method="spUpdatePqAccess">
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ModuleID" Parameter="moduleID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsAccessRight" Parameter="isAccessRight" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pqResetNode" Method="pqResetNode">
+    <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IsAccessRight" Parameter="isAccessRight" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
