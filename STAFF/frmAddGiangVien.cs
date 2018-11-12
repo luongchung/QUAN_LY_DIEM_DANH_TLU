@@ -11,12 +11,12 @@ using HeThong;
 
 namespace STAFF
 {
-    public partial class frmAddNhanVien : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddGiangVien : DevExpress.XtraEditors.XtraForm
     {
         public int? ID { get; set; }
         private NhanVien obj;
         private DatabaseDataContext db;
-        public frmAddNhanVien()
+        public frmAddGiangVien()
         {
             InitializeComponent();
             db = new DatabaseDataContext();
@@ -25,6 +25,7 @@ namespace STAFF
 
         private void frmAddNhanVien_Load(object sender, EventArgs e)
         {
+            lueKhoa.Properties.DataSource = (from a in db.Khoas select a).ToList();
             if (ID != null)
             {
                 txtMaNV.Enabled = false;
@@ -36,8 +37,11 @@ namespace STAFF
                 ckNam.Checked =(bool) obj.GioiTinh;
                 ckNu.Checked = !ckNam.Checked;
                 txtTuoi.Value =(int) obj.Tuoi;
-                ckIsGV.Checked = ((bool)obj.IsGV) ? true : false;   
-            }          
+                lueKhoa.EditValue = obj.IDKhoa;
+                
+               
+            }
+           
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -49,10 +53,10 @@ namespace STAFF
                 obj.MaNV= txtMaNV.Text;
                 obj.TenNV= txtHVT.Text;
                 obj.SDT = txtSDT.Text;
+                obj.IsGV = true;
                 obj.DiaChi=txtDiaChi.Text;
                 obj.GioiTinh= ckNam.Checked;
                 obj.Tuoi= (int)txtTuoi.Value;
-                obj.IsGV = ckIsGV.Checked;
                 obj.IsLock = true;
                 obj.Password = lg.HashPassword("123456");
                 db.NhanViens.InsertOnSubmit(obj);
@@ -72,17 +76,17 @@ namespace STAFF
                 obj.MaNV = txtMaNV.Text;
                 obj.TenNV = txtHVT.Text;
                 obj.SDT = txtSDT.Text;
+                obj.IsGV = true;
                 obj.DiaChi = txtDiaChi.Text;
                 obj.GioiTinh = ckNam.Checked;
                 obj.Tuoi = (int)txtTuoi.Value;
-                obj.IsGV = ckIsGV.Checked;
                 try
                 {
                     db.SubmitChanges();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("LỖI DATABASE");
+                    HeThong.Thongbao.Loi(ex.ToString());
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
@@ -92,12 +96,12 @@ namespace STAFF
         {
             if (String.IsNullOrEmpty(txtMaNV.Text))
             {
-                MessageBox.Show("Mã nhân viên. xin mời nhập !", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                HeThong.Thongbao.Canhbao("Mã giảng viên. xin mời nhập !");
                 return true;
             }
             if (String.IsNullOrEmpty(txtHVT.Text))
             {
-                MessageBox.Show("Tên nhân viên. xin mời nhập !", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                HeThong.Thongbao.Canhbao("Tên giảng viên. xin mời nhập !");
                 return true;
             }
             return false;

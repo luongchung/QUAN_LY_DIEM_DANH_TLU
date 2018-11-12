@@ -1,6 +1,6 @@
 ﻿namespace STAFF
 {
-    partial class frmAddNhanVien
+    partial class frmAddGiangVien
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddNhanVien));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddGiangVien));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -39,16 +40,16 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
             this.txtTuoi = new System.Windows.Forms.NumericUpDown();
+            this.ckNam = new System.Windows.Forms.CheckBox();
             this.ckNu = new System.Windows.Forms.CheckBox();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnDong = new DevExpress.XtraEditors.SimpleButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ckNam = new System.Windows.Forms.CheckBox();
-            this.ckIsGV = new System.Windows.Forms.CheckBox();
+            this.lueKhoa = new DevExpress.XtraEditors.LookUpEdit();
             this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueKhoa.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,10 +70,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Họ tên";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(67, 148);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Giới tính";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(106, 261);
+            this.label4.Location = new System.Drawing.Point(106, 258);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 25);
             this.label4.TabIndex = 3;
@@ -81,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 302);
+            this.label5.Location = new System.Drawing.Point(23, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 25);
             this.label5.TabIndex = 4;
@@ -90,7 +100,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(81, 348);
+            this.label6.Location = new System.Drawing.Point(81, 345);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 25);
             this.label6.TabIndex = 5;
@@ -112,24 +122,35 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(181, 302);
+            this.txtSDT.Location = new System.Drawing.Point(181, 299);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(394, 33);
             this.txtSDT.TabIndex = 9;
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(181, 346);
+            this.txtDiaChi.Location = new System.Drawing.Point(181, 343);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(394, 96);
             this.txtDiaChi.TabIndex = 10;
             // 
             // txtTuoi
             // 
-            this.txtTuoi.Location = new System.Drawing.Point(181, 261);
+            this.txtTuoi.Location = new System.Drawing.Point(181, 258);
             this.txtTuoi.Name = "txtTuoi";
             this.txtTuoi.Size = new System.Drawing.Size(394, 33);
             this.txtTuoi.TabIndex = 11;
+            // 
+            // ckNam
+            // 
+            this.ckNam.AutoSize = true;
+            this.ckNam.Location = new System.Drawing.Point(181, 148);
+            this.ckNam.Name = "ckNam";
+            this.ckNam.Size = new System.Drawing.Size(87, 29);
+            this.ckNam.TabIndex = 12;
+            this.ckNam.Text = "Nam";
+            this.ckNam.UseVisualStyleBackColor = true;
+            this.ckNam.CheckedChanged += new System.EventHandler(this.ckNam_CheckedChanged);
             // 
             // ckNu
             // 
@@ -145,7 +166,7 @@
             // btnLuu
             // 
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(180, 465);
+            this.btnLuu.Location = new System.Drawing.Point(180, 462);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(248, 66);
             this.btnLuu.TabIndex = 14;
@@ -155,7 +176,7 @@
             // btnDong
             // 
             this.btnDong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDong.ImageOptions.Image")));
-            this.btnDong.Location = new System.Drawing.Point(444, 465);
+            this.btnDong.Location = new System.Drawing.Point(444, 462);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(131, 66);
             this.btnDong.TabIndex = 15;
@@ -172,52 +193,37 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "(*)Username";
             // 
-            // label3
+            // lueKhoa
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 148);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Giới tính";
-            // 
-            // ckNam
-            // 
-            this.ckNam.AutoSize = true;
-            this.ckNam.Location = new System.Drawing.Point(181, 148);
-            this.ckNam.Name = "ckNam";
-            this.ckNam.Size = new System.Drawing.Size(87, 29);
-            this.ckNam.TabIndex = 12;
-            this.ckNam.Text = "Nam";
-            this.ckNam.UseVisualStyleBackColor = true;
-            this.ckNam.CheckedChanged += new System.EventHandler(this.ckNam_CheckedChanged);
-            // 
-            // ckIsGV
-            // 
-            this.ckIsGV.AutoSize = true;
-            this.ckIsGV.Location = new System.Drawing.Point(181, 202);
-            this.ckIsGV.Name = "ckIsGV";
-            this.ckIsGV.Size = new System.Drawing.Size(169, 29);
-            this.ckIsGV.TabIndex = 18;
-            this.ckIsGV.Text = "Là giảng viên";
-            this.ckIsGV.UseVisualStyleBackColor = true;
+            this.lueKhoa.Location = new System.Drawing.Point(181, 198);
+            this.lueKhoa.Name = "lueKhoa";
+            this.lueKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueKhoa.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenKhoa", "Tên khoa")});
+            this.lueKhoa.Properties.DisplayMember = "TenKhoa";
+            this.lueKhoa.Properties.NullText = "[Mời bạn chọn khoa]";
+            this.lueKhoa.Properties.ValueMember = "ID";
+            this.lueKhoa.Size = new System.Drawing.Size(394, 34);
+            this.lueKhoa.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 203);
+            this.label8.Location = new System.Drawing.Point(100, 202);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(148, 25);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Loai nhân viên";
+            this.label8.Size = new System.Drawing.Size(58, 25);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Khoa";
             // 
-            // frmAddNhanVien
+            // frmAddGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 660);
-            this.Controls.Add(this.ckIsGV);
+            this.ClientSize = new System.Drawing.Size(733, 651);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.lueKhoa);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnLuu);
@@ -234,12 +240,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "frmAddNhanVien";
+            this.Name = "frmAddGiangVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thêm / Sửa Nhân viên";
+            this.Text = "Thêm / Sửa giảng viên";
             this.Load += new System.EventHandler(this.frmAddNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTuoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueKhoa.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,6 +256,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -257,13 +265,12 @@
         private System.Windows.Forms.TextBox txtSDT;
         private DevExpress.XtraEditors.MemoEdit txtDiaChi;
         private System.Windows.Forms.NumericUpDown txtTuoi;
+        private System.Windows.Forms.CheckBox ckNam;
         private System.Windows.Forms.CheckBox ckNu;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
         private DevExpress.XtraEditors.SimpleButton btnDong;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox ckNam;
-        private System.Windows.Forms.CheckBox ckIsGV;
+        private DevExpress.XtraEditors.LookUpEdit lueKhoa;
         private System.Windows.Forms.Label label8;
     }
 }

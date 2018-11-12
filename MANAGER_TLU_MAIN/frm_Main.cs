@@ -20,8 +20,8 @@ namespace AppMain
         {
             InitializeComponent();
             db = new DatabaseDataContext();
-            // LoadForm(new frm_ShowMain()); 
-            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyTG());
+            LoadForm(new frm_ShowMain()); 
+            
         }
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -74,7 +74,7 @@ namespace AppMain
             
             
             //Phân quyền
-            HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
+          //  HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
             //set không cho đóng tab
             HeThong.Common.IsClose = false;
             //LoadForm(new HoaDon.frmTaoHoaDon());
@@ -149,6 +149,26 @@ namespace AppMain
             Common.User = frm.UsersLogin;
             //Phân quyền
             HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
+        }
+
+        private void btnQLGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new STAFF.frmMainGV());
+        }
+
+        private void btnQLKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new KHOA.frmQuanLyKhoa());
+        }
+
+        private void btnqlThoigiantiethoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyTG());
+        }
+
+        private void btnQLDiaDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyDiaDiem());
         }
     }
 }

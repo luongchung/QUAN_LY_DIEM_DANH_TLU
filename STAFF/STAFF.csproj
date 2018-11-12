@@ -54,11 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddGiangVien.Designer.cs">
+      <DependentUpon>frmAddGiangVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAddNhanVien.Designer.cs">
       <DependentUpon>frmAddNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainGV.Designer.cs">
+      <DependentUpon>frmMainGV.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -69,8 +81,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddGiangVien.resx">
+      <DependentUpon>frmAddGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddNhanVien.resx">
       <DependentUpon>frmAddNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainGV.resx">
+      <DependentUpon>frmMainGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

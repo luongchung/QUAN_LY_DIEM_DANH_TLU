@@ -37,7 +37,7 @@ namespace HeThong.Func
                 objnv.SDT = objnhanvien.SDT;
                 if (objnhanvien.Password.Length != 0) objnv.Password = HashPassword(objnhanvien.Password);
                 objnv.DiaChi = objnhanvien.DiaChi;
-                objnv.IDLoaiNV = objnhanvien.IDLoaiNV;
+                objnv.IsGV = objnhanvien.IsGV;
                 try
                 {
                     db.SubmitChanges();
