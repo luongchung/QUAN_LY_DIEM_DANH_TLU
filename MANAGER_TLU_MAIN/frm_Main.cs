@@ -77,7 +77,7 @@ namespace AppMain
           //  HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
             //set không cho đóng tab
             HeThong.Common.IsClose = false;
-            //LoadForm(new HoaDon.frmTaoHoaDon());
+            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyLopMonHoc());
          
          
         }

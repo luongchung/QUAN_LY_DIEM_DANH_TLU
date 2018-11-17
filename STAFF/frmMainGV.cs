@@ -32,6 +32,7 @@ namespace STAFF
                                     a.Tuoi,
                                     GioiTinh=((bool)a.GioiTinh)?"Nam":"Nữ",
                                     a.DiaChi,
+                                    Khoa=(from b in db.Khoas where b.ID==a.IDKhoa select b.TenKhoa).Single(),
                                     a.SDT
                                 }).ToList();
         }

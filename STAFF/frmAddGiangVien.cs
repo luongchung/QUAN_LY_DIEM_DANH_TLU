@@ -59,6 +59,7 @@ namespace STAFF
                 obj.Tuoi= (int)txtTuoi.Value;
                 obj.IsLock = true;
                 obj.Password = lg.HashPassword("123456");
+                obj.IDKhoa = (int)lueKhoa.EditValue;
                 db.NhanViens.InsertOnSubmit(obj);
                 try
                 {
@@ -80,6 +81,7 @@ namespace STAFF
                 obj.DiaChi = txtDiaChi.Text;
                 obj.GioiTinh = ckNam.Checked;
                 obj.Tuoi = (int)txtTuoi.Value;
+                obj.IDKhoa = (int)lueKhoa.EditValue;
                 try
                 {
                     db.SubmitChanges();

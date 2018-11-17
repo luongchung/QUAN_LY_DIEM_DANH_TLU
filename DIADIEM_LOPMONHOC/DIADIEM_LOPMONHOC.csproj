@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddLopMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddLopMonHoc.Designer.cs">
+      <DependentUpon>frmAddLopMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddTG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,12 @@
     </Compile>
     <Compile Include="frmAddDiaDiem.Designer.cs">
       <DependentUpon>frmAddDiaDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanLyLopMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanLyLopMonHoc.Designer.cs">
+      <DependentUpon>frmQuanLyLopMonHoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuanLyTG.cs">
       <SubType>Form</SubType>
@@ -82,13 +94,24 @@
       <DependentUpon>frmQuanLyDiaDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddLopMonHoc.resx">
+      <DependentUpon>frmAddLopMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddTG.resx">
       <DependentUpon>frmAddTG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddDiaDiem.resx">
       <DependentUpon>frmAddDiaDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanLyLopMonHoc.resx">
+      <DependentUpon>frmQuanLyLopMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyTG.resx">
       <DependentUpon>frmQuanLyTG.cs</DependentUpon>
@@ -97,6 +120,10 @@
       <DependentUpon>frmQuanLyDiaDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HeThong\HETHONG.csproj">

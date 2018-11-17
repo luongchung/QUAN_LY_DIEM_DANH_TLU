@@ -99,6 +99,7 @@
             this.teBatDau.Name = "teBatDau";
             this.teBatDau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.teBatDau.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
             this.teBatDau.Size = new System.Drawing.Size(395, 34);
             this.teBatDau.TabIndex = 16;
             // 
@@ -109,6 +110,7 @@
             this.teKetThuc.Name = "teKetThuc";
             this.teKetThuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.teKetThuc.Properties.TimeEditStyle = DevExpress.XtraEditors.Repository.TimeEditStyle.TouchUI;
             this.teKetThuc.Size = new System.Drawing.Size(395, 34);
             this.teKetThuc.TabIndex = 17;
             // 
