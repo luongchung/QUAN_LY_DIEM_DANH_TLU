@@ -18,7 +18,27 @@ namespace DIADIEM_LOPMONHOC
         {
             InitializeComponent();
             db = new DatabaseDataContext();
+            khoitaoSTT();
 
+
+        }
+        private void khoitaoSTT()
+        {
+            var col = gvBuoiHoc.Columns.Add();
+            col.FieldName = "STT";
+            col.Visible = true;
+            col.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            gvBuoiHoc.CustomUnboundColumnData += gridView1_CustomUnboundColumnData;
+
+            void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+            {
+                if (e.IsGetData)
+                    e.Value = e.ListSourceRowIndex + 1;
+            }
+
+
+
+         
         }
         private void loadNV()
         {
@@ -132,9 +152,7 @@ namespace DIADIEM_LOPMONHOC
                                             sv.ID,
                                             sv.TenSV,
                                             sv.MSV,
-                                            TenKhoa=(from b in db.Khoas where b.ID.Equals(sv.IDKhoa) select b.TenKhoa).Single()
-
-                                          
+                                            TenKhoa=(from b in db.Khoas where b.ID.Equals(sv.IDKhoa) select b.TenKhoa).Single()       
                                         }).ToList();
         }
         private void loadThongTin(int? id)
