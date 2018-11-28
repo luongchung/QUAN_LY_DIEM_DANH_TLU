@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HeThong;
 using DevExpress.XtraReports.UI;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace AppMain
 {
@@ -169,6 +170,22 @@ namespace AppMain
         private void btnQLDiaDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyDiaDiem());
+        }
+
+        private void btnNhapSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            STUDENT.frmImportExcel frm = new STUDENT.frmImportExcel();
+            frm.Show();
+        }
+
+        private void btnQLLopMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyLopMonHoc());
+        }
+
+        private void btnQLSVLopMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new DIADIEM_LOPMONHOC.frmQLSVLopMonHoc());
         }
     }
 }

@@ -81,6 +81,12 @@
     <Compile Include="frmQuanLyLopMonHoc.Designer.cs">
       <DependentUpon>frmQuanLyLopMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQLSVLopMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLSVLopMonHoc.Designer.cs">
+      <DependentUpon>frmQLSVLopMonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuanLyTG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyLopMonHoc.resx">
       <DependentUpon>frmQuanLyLopMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLSVLopMonHoc.resx">
+      <DependentUpon>frmQLSVLopMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyTG.resx">
       <DependentUpon>frmQuanLyTG.cs</DependentUpon>

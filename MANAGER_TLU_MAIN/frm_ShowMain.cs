@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ZXing.Common;
 using ZXing;
 using ZXing.QrCode;
+using Quobject.SocketIoClientDotNet.Client;
 
 namespace AppMain
 {
@@ -22,6 +23,15 @@ namespace AppMain
         {
             InitializeComponent();
             db = new DatabaseDataContext();
+            //var socket = IO.Socket("http://localhost:996");
+            //socket.On(Socket.EVENT_CONNECT, () =>
+            //{
+            //    socket.Emit("huhu","Tao là Chung");
+
+            //});
+            //socket.On(Socket.EVENT_CONNECT_ERROR, () => {
+            //    HeThong.Thongbao.Loi("Server Nodejs không hoạt đông");
+            //});
         }
 
         private void frm_ShowMain_FormClosing(object sender, FormClosingEventArgs e)

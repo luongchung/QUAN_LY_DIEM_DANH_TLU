@@ -18,28 +18,11 @@ namespace DIADIEM_LOPMONHOC
         {
             InitializeComponent();
             db = new DatabaseDataContext();
-            khoitaoSTT();
+        
 
 
         }
-        private void khoitaoSTT()
-        {
-            var col = gvBuoiHoc.Columns.Add();
-            col.FieldName = "STT";
-            col.Visible = true;
-            col.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
-            gvBuoiHoc.CustomUnboundColumnData += gridView1_CustomUnboundColumnData;
-
-            void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
-            {
-                if (e.IsGetData)
-                    e.Value = e.ListSourceRowIndex + 1;
-            }
-
-
-
-         
-        }
+     
         private void loadNV()
         {
             //HeThong.Func.PhanQuyen.phanQuyenBarManager(this,HeThong.Common.User, barManager1);
@@ -180,6 +163,16 @@ namespace DIADIEM_LOPMONHOC
             txtGiangVien.Text = (from a in db.NhanViens where a.ID.Equals(obj.IDGiangVien) select a.TenNV).SingleOrDefault();
         }
 
-       
+        private void gvBuoiHoc_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.IsGetData)
+                e.Value = e.ListSourceRowIndex + 1;
+        }
+
+        private void gvSinhVienLop_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if(e.IsGetData)
+                e.Value = e.ListSourceRowIndex + 1;
+        }
     }
 }
