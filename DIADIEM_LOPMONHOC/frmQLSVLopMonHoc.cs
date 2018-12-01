@@ -61,54 +61,49 @@ namespace DIADIEM_LOPMONHOC
 
         private void btnNap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            LoadSVfromLop();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //var f = new frmAddTG();
-            //f.ID = null;
-            //f.ShowDialog();
-            //if (f.DialogResult == System.Windows.Forms.DialogResult.OK)
-            //    loadNV();
+            if (IDLop == null)
+            {
+                HeThong.Thongbao.Canhbao("Bạn phải chọn lớp môn học để thêm sinh viên!");
+                return;
+            }
+            var f = new frmThemSV();
+            f.ID = IDLop;
+            f.ShowDialog();
+            if (f.DialogResult == System.Windows.Forms.DialogResult.OK)
+                LoadSVfromLop();
         }
 
-        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //var id = (int?)gvMain.GetFocusedRowCellValue("ID");
-            //if (id == null)
-            //{
-            //    MessageBox.Show("Bạn chưa chọn vào hàng cần sửa, vui lòng chọn.");
-            //    return;
-            //}
-            //var f = new frmAddTG();
-            //f.ID = id;
-            //f.ShowDialog();
-            //if (f.DialogResult == System.Windows.Forms.DialogResult.OK)
-            //    loadNV();
-        }
+  
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //if (gvMain.GetFocusedRowCellValue("ID") == null)
-            //{
-            //    Thongbao.Hoi("Mời bạn chọn hàng cần xóa.");
-            //}
-            //else
-            //{
-            //    int id_tmp = (int)gvMain.GetFocusedRowCellValue("ID");
-            //    DialogResult f = Thongbao._CauHoi();
-            //    if (f == System.Windows.Forms.DialogResult.Yes)
-            //    {
-            //        var delete = (from a in db.ThoiGianTietHocs where a.ID == (int)id_tmp select a).Single();
-            //        db.ThoiGianTietHocs.DeleteOnSubmit(delete);
-            //        try { db.SubmitChanges(); }
-            //        catch (Exception) { MessageBox.Show("Xóa không thành công, vui lòng kiểm tra lại."); }
-            //        loadNV();
-            //    }
-            //}
+            if (gvMain.GetFocusedRowCellValue("ID") == null)
+            {
+                Thongbao.Hoi("Mời bạn chọn hàng cần xóa.");
+            }
+            else
+            {
+                int id_tmp = (int)gvMain.GetFocusedRowCellValue("ID");
+                DialogResult f = Thongbao._CauHoi();
+                if (f == System.Windows.Forms.DialogResult.Yes)
+                {
+                    var delete = (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == (int)id_tmp && a.IDLopMonHoc==IDLop select a).Single();
+                    db.SinhVien_LopMonHocs.DeleteOnSubmit(delete);
+                    try { db.SubmitChanges(); }
+                    catch (Exception) { MessageBox.Show("Xóa không thành công, vui lòng kiểm tra lại."); }
+                    LoadSVfromLop();
+                }
+            }
         }
 
- 
+        private void gcMain_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

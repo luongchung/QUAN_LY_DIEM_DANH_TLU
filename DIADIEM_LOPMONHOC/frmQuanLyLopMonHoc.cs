@@ -36,6 +36,11 @@ namespace DIADIEM_LOPMONHOC
                                      KetThuc = a.IsKT
                                 }
                                 ).ToList();
+            var id = (int?)gvMain.GetFocusedRowCellValue("ID");
+            if (id == null) return;
+            loadThongTin(id);
+            loadDanhSachLopHoc(id);
+            loadDanhSachSinhVien(id);
         }
         private void frmMain_Load(object sender, EventArgs e)
         {

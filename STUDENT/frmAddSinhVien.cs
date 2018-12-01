@@ -60,7 +60,7 @@ namespace STUDENT
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    HeThong.Thongbao.Canhbao(ex.ToString());
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
@@ -78,9 +78,9 @@ namespace STUDENT
                 {
                     db.SubmitChanges();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("LỖI DATABASE");
+                    HeThong.Thongbao.Canhbao(ex.ToString());
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
