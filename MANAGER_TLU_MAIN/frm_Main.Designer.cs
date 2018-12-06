@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageHeThong;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.ribbonPageGroup_HeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -78,6 +77,8 @@
             this.btnXuatDanhSachGV = new DevExpress.XtraBars.BarButtonItem();
             this.btnQLLopMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnQLSVLopMonHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQLLapLich = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageQuanLyChung = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupQLSV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupQLGV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,17 +91,18 @@
             this.ribbonPageGroupLoaiDV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupExport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupQLLapLich = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupExportBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.applicationmenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.image = new DevExpress.Utils.ImageCollection(this.components);
-            this.pageMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.theme = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.applicationmenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.image = new DevExpress.Utils.ImageCollection();
+            this.pageMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.theme = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.ribbonPageGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTraCuuLapLich = new DevExpress.XtraBars.BarButtonItem();
             ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.applicationmenu)).BeginInit();
@@ -252,9 +254,12 @@
             this.btnQLDiaDiem,
             this.btnXuatDanhSachGV,
             this.btnQLLopMonHoc,
-            this.btnQLSVLopMonHoc});
+            this.btnQLSVLopMonHoc,
+            this.btnQLLapLich,
+            this.barButtonItem3,
+            this.btnTraCuuLapLich});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 34;
+            this.ribbon.MaxItemId = 37;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.btnTT);
             this.ribbon.PageHeaderItemLinks.Add(this.btnDangXuat);
@@ -533,6 +538,21 @@
             this.btnQLSVLopMonHoc.Name = "btnQLSVLopMonHoc";
             this.btnQLSVLopMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLSVLopMonHoc_ItemClick);
             // 
+            // btnQLLapLich
+            // 
+            this.btnQLLapLich.Caption = "Quản lý lập lịch";
+            this.btnQLLapLich.Id = 34;
+            this.btnQLLapLich.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnQLLapLich.ImageOptions.SvgImage")));
+            this.btnQLLapLich.Name = "btnQLLapLich";
+            this.btnQLLapLich.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLLapLich_ItemClick);
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Xuất lịch PDF";
+            this.barButtonItem3.Id = 35;
+            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            // 
             // ribbonPageQuanLyChung
             // 
             this.ribbonPageQuanLyChung.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -622,15 +642,18 @@
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroupQLLapLich});
             this.ribbonPage1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.ImageOptions.Image")));
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Lập lịch";
             // 
-            // ribbonPageGroup1
+            // ribbonPageGroupQLLapLich
             // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroupQLLapLich.ItemLinks.Add(this.btnTraCuuLapLich);
+            this.ribbonPageGroupQLLapLich.ItemLinks.Add(this.btnQLLapLich);
+            this.ribbonPageGroupQLLapLich.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroupQLLapLich.Name = "ribbonPageGroupQLLapLich";
+            this.ribbonPageGroupQLLapLich.Text = "QUẢN LÝ LẬP LỊCH";
             // 
             // ribbonPageBaoCao
             // 
@@ -1347,6 +1370,14 @@
             this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
             this.barButtonItem2.Name = "barButtonItem2";
             // 
+            // btnTraCuuLapLich
+            // 
+            this.btnTraCuuLapLich.Caption = "Tra cứu lịch lớp môn học";
+            this.btnTraCuuLapLich.Id = 36;
+            this.btnTraCuuLapLich.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTraCuuLapLich.ImageOptions.SvgImage")));
+            this.btnTraCuuLapLich.Name = "btnTraCuuLapLich";
+            this.btnTraCuuLapLich.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraCuuLapLich_ItemClick);
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -1427,7 +1458,7 @@
         private DevExpress.XtraBars.BarButtonItem btnTracuuTTSV;
         private DevExpress.XtraBars.BarButtonItem btnTraCuuDiemDanhSV;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupQLLapLich;
         private DevExpress.XtraBars.BarButtonItem btnQLGV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupQLGV;
         private DevExpress.XtraBars.BarButtonItem btnNhapDanhSachGV;
@@ -1441,6 +1472,9 @@
         private DevExpress.XtraBars.BarButtonItem btnQLLopMonHoc;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupQLLopMonHoc;
         private DevExpress.XtraBars.BarButtonItem btnQLSVLopMonHoc;
+        private DevExpress.XtraBars.BarButtonItem btnQLLapLich;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem btnTraCuuLapLich;
     }
 }
 

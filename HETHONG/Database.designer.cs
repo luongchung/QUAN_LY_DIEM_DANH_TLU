@@ -33,9 +33,6 @@ namespace HeThong
     partial void InsertBuoiHoc(BuoiHoc instance);
     partial void UpdateBuoiHoc(BuoiHoc instance);
     partial void DeleteBuoiHoc(BuoiHoc instance);
-    partial void InsertThoiGianTietHoc(ThoiGianTietHoc instance);
-    partial void UpdateThoiGianTietHoc(ThoiGianTietHoc instance);
-    partial void DeleteThoiGianTietHoc(ThoiGianTietHoc instance);
     partial void InsertDiaDiemHoc(DiaDiemHoc instance);
     partial void UpdateDiaDiemHoc(DiaDiemHoc instance);
     partial void DeleteDiaDiemHoc(DiaDiemHoc instance);
@@ -75,6 +72,9 @@ namespace HeThong
     partial void InsertSinhVien_LopMonHoc(SinhVien_LopMonHoc instance);
     partial void UpdateSinhVien_LopMonHoc(SinhVien_LopMonHoc instance);
     partial void DeleteSinhVien_LopMonHoc(SinhVien_LopMonHoc instance);
+    partial void InsertThoiGianTietHoc(ThoiGianTietHoc instance);
+    partial void UpdateThoiGianTietHoc(ThoiGianTietHoc instance);
+    partial void DeleteThoiGianTietHoc(ThoiGianTietHoc instance);
     #endregion
 		
 		public DatabaseDataContext() : 
@@ -112,14 +112,6 @@ namespace HeThong
 			get
 			{
 				return this.GetTable<BuoiHoc>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ThoiGianTietHoc> ThoiGianTietHocs
-		{
-			get
-			{
-				return this.GetTable<ThoiGianTietHoc>();
 			}
 		}
 		
@@ -227,6 +219,14 @@ namespace HeThong
 			}
 		}
 		
+		public System.Data.Linq.Table<ThoiGianTietHoc> ThoiGianTietHocs
+		{
+			get
+			{
+				return this.GetTable<ThoiGianTietHoc>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.AccessRightInsert")]
 		public int AccessRightInsert([global::System.Data.Linq.Mapping.ParameterAttribute(Name="GroupID", DbType="Int")] System.Nullable<int> groupID)
 		{
@@ -273,13 +273,13 @@ namespace HeThong
 		
 		private EntitySet<DiemDanh> _DiemDanhs;
 		
-		private EntityRef<ThoiGianTietHoc> _ThoiGianTietHoc;
-		
-		private EntityRef<ThoiGianTietHoc> _ThoiGianTietHoc1;
-		
 		private EntityRef<DiaDiemHoc> _DiaDiemHoc;
 		
 		private EntityRef<LopMonHoc> _LopMonHoc;
+		
+		private EntityRef<ThoiGianTietHoc> _ThoiGianTietHoc;
+		
+		private EntityRef<ThoiGianTietHoc> _ThoiGianTietHoc1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -306,10 +306,10 @@ namespace HeThong
 		public BuoiHoc()
 		{
 			this._DiemDanhs = new EntitySet<DiemDanh>(new Action<DiemDanh>(this.attach_DiemDanhs), new Action<DiemDanh>(this.detach_DiemDanhs));
-			this._ThoiGianTietHoc = default(EntityRef<ThoiGianTietHoc>);
-			this._ThoiGianTietHoc1 = default(EntityRef<ThoiGianTietHoc>);
 			this._DiaDiemHoc = default(EntityRef<DiaDiemHoc>);
 			this._LopMonHoc = default(EntityRef<LopMonHoc>);
+			this._ThoiGianTietHoc = default(EntityRef<ThoiGianTietHoc>);
+			this._ThoiGianTietHoc1 = default(EntityRef<ThoiGianTietHoc>);
 			OnCreated();
 		}
 		
@@ -502,74 +502,6 @@ namespace HeThong
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc", Storage="_ThoiGianTietHoc", ThisKey="IDTietBatDau", OtherKey="ID", IsForeignKey=true)]
-		public ThoiGianTietHoc ThoiGianTietHoc
-		{
-			get
-			{
-				return this._ThoiGianTietHoc.Entity;
-			}
-			set
-			{
-				ThoiGianTietHoc previousValue = this._ThoiGianTietHoc.Entity;
-				if (((previousValue != value) 
-							|| (this._ThoiGianTietHoc.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ThoiGianTietHoc.Entity = null;
-						previousValue.BuoiHocs.Remove(this);
-					}
-					this._ThoiGianTietHoc.Entity = value;
-					if ((value != null))
-					{
-						value.BuoiHocs.Add(this);
-						this._IDTietBatDau = value.ID;
-					}
-					else
-					{
-						this._IDTietBatDau = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ThoiGianTietHoc");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc1", Storage="_ThoiGianTietHoc1", ThisKey="IDTietKetThuc", OtherKey="ID", IsForeignKey=true)]
-		public ThoiGianTietHoc ThoiGianTietHoc1
-		{
-			get
-			{
-				return this._ThoiGianTietHoc1.Entity;
-			}
-			set
-			{
-				ThoiGianTietHoc previousValue = this._ThoiGianTietHoc1.Entity;
-				if (((previousValue != value) 
-							|| (this._ThoiGianTietHoc1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ThoiGianTietHoc1.Entity = null;
-						previousValue.BuoiHocs1.Remove(this);
-					}
-					this._ThoiGianTietHoc1.Entity = value;
-					if ((value != null))
-					{
-						value.BuoiHocs1.Add(this);
-						this._IDTietKetThuc = value.ID;
-					}
-					else
-					{
-						this._IDTietKetThuc = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("ThoiGianTietHoc1");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DiaDiemHoc_BuoiHoc", Storage="_DiaDiemHoc", ThisKey="IDDiaDiem", OtherKey="ID", IsForeignKey=true)]
 		public DiaDiemHoc DiaDiemHoc
 		{
@@ -638,6 +570,74 @@ namespace HeThong
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc", Storage="_ThoiGianTietHoc", ThisKey="IDTietBatDau", OtherKey="ID", IsForeignKey=true)]
+		public ThoiGianTietHoc ThoiGianTietHoc
+		{
+			get
+			{
+				return this._ThoiGianTietHoc.Entity;
+			}
+			set
+			{
+				ThoiGianTietHoc previousValue = this._ThoiGianTietHoc.Entity;
+				if (((previousValue != value) 
+							|| (this._ThoiGianTietHoc.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ThoiGianTietHoc.Entity = null;
+						previousValue.BuoiHocs.Remove(this);
+					}
+					this._ThoiGianTietHoc.Entity = value;
+					if ((value != null))
+					{
+						value.BuoiHocs.Add(this);
+						this._IDTietBatDau = value.ID;
+					}
+					else
+					{
+						this._IDTietBatDau = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ThoiGianTietHoc");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc1", Storage="_ThoiGianTietHoc1", ThisKey="IDTietKetThuc", OtherKey="ID", IsForeignKey=true)]
+		public ThoiGianTietHoc ThoiGianTietHoc1
+		{
+			get
+			{
+				return this._ThoiGianTietHoc1.Entity;
+			}
+			set
+			{
+				ThoiGianTietHoc previousValue = this._ThoiGianTietHoc1.Entity;
+				if (((previousValue != value) 
+							|| (this._ThoiGianTietHoc1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ThoiGianTietHoc1.Entity = null;
+						previousValue.BuoiHocs1.Remove(this);
+					}
+					this._ThoiGianTietHoc1.Entity = value;
+					if ((value != null))
+					{
+						value.BuoiHocs1.Add(this);
+						this._IDTietKetThuc = value.ID;
+					}
+					else
+					{
+						this._IDTietKetThuc = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("ThoiGianTietHoc1");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -668,196 +668,6 @@ namespace HeThong
 		{
 			this.SendPropertyChanging();
 			entity.BuoiHoc = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ThoiGianTietHoc")]
-	public partial class ThoiGianTietHoc : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _TenTiet;
-		
-		private System.Nullable<System.DateTime> _ThoiGianBatDau;
-		
-		private System.Nullable<System.DateTime> _ThoiGianKetThuc;
-		
-		private EntitySet<BuoiHoc> _BuoiHocs;
-		
-		private EntitySet<BuoiHoc> _BuoiHocs1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnTenTietChanging(System.Nullable<int> value);
-    partial void OnTenTietChanged();
-    partial void OnThoiGianBatDauChanging(System.Nullable<System.DateTime> value);
-    partial void OnThoiGianBatDauChanged();
-    partial void OnThoiGianKetThucChanging(System.Nullable<System.DateTime> value);
-    partial void OnThoiGianKetThucChanged();
-    #endregion
-		
-		public ThoiGianTietHoc()
-		{
-			this._BuoiHocs = new EntitySet<BuoiHoc>(new Action<BuoiHoc>(this.attach_BuoiHocs), new Action<BuoiHoc>(this.detach_BuoiHocs));
-			this._BuoiHocs1 = new EntitySet<BuoiHoc>(new Action<BuoiHoc>(this.attach_BuoiHocs1), new Action<BuoiHoc>(this.detach_BuoiHocs1));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTiet", DbType="Int")]
-		public System.Nullable<int> TenTiet
-		{
-			get
-			{
-				return this._TenTiet;
-			}
-			set
-			{
-				if ((this._TenTiet != value))
-				{
-					this.OnTenTietChanging(value);
-					this.SendPropertyChanging();
-					this._TenTiet = value;
-					this.SendPropertyChanged("TenTiet");
-					this.OnTenTietChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThoiGianBatDau", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianBatDau
-		{
-			get
-			{
-				return this._ThoiGianBatDau;
-			}
-			set
-			{
-				if ((this._ThoiGianBatDau != value))
-				{
-					this.OnThoiGianBatDauChanging(value);
-					this.SendPropertyChanging();
-					this._ThoiGianBatDau = value;
-					this.SendPropertyChanged("ThoiGianBatDau");
-					this.OnThoiGianBatDauChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThoiGianKetThuc", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ThoiGianKetThuc
-		{
-			get
-			{
-				return this._ThoiGianKetThuc;
-			}
-			set
-			{
-				if ((this._ThoiGianKetThuc != value))
-				{
-					this.OnThoiGianKetThucChanging(value);
-					this.SendPropertyChanging();
-					this._ThoiGianKetThuc = value;
-					this.SendPropertyChanged("ThoiGianKetThuc");
-					this.OnThoiGianKetThucChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc", Storage="_BuoiHocs", ThisKey="ID", OtherKey="IDTietBatDau")]
-		public EntitySet<BuoiHoc> BuoiHocs
-		{
-			get
-			{
-				return this._BuoiHocs;
-			}
-			set
-			{
-				this._BuoiHocs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc1", Storage="_BuoiHocs1", ThisKey="ID", OtherKey="IDTietKetThuc")]
-		public EntitySet<BuoiHoc> BuoiHocs1
-		{
-			get
-			{
-				return this._BuoiHocs1;
-			}
-			set
-			{
-				this._BuoiHocs1.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BuoiHocs(BuoiHoc entity)
-		{
-			this.SendPropertyChanging();
-			entity.ThoiGianTietHoc = this;
-		}
-		
-		private void detach_BuoiHocs(BuoiHoc entity)
-		{
-			this.SendPropertyChanging();
-			entity.ThoiGianTietHoc = null;
-		}
-		
-		private void attach_BuoiHocs1(BuoiHoc entity)
-		{
-			this.SendPropertyChanging();
-			entity.ThoiGianTietHoc1 = this;
-		}
-		
-		private void detach_BuoiHocs1(BuoiHoc entity)
-		{
-			this.SendPropertyChanging();
-			entity.ThoiGianTietHoc1 = null;
 		}
 	}
 	
@@ -3744,6 +3554,220 @@ namespace HeThong
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ThoiGianTietHoc")]
+	public partial class ThoiGianTietHoc : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<int> _N;
+		
+		private int _ID;
+		
+		private System.Nullable<int> _TenTiet;
+		
+		private System.Nullable<System.DateTime> _ThoiGianBatDau;
+		
+		private System.Nullable<System.DateTime> _ThoiGianKetThuc;
+		
+		private EntitySet<BuoiHoc> _BuoiHocs;
+		
+		private EntitySet<BuoiHoc> _BuoiHocs1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnNChanging(System.Nullable<int> value);
+    partial void OnNChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnTenTietChanging(System.Nullable<int> value);
+    partial void OnTenTietChanged();
+    partial void OnThoiGianBatDauChanging(System.Nullable<System.DateTime> value);
+    partial void OnThoiGianBatDauChanged();
+    partial void OnThoiGianKetThucChanging(System.Nullable<System.DateTime> value);
+    partial void OnThoiGianKetThucChanged();
+    #endregion
+		
+		public ThoiGianTietHoc()
+		{
+			this._BuoiHocs = new EntitySet<BuoiHoc>(new Action<BuoiHoc>(this.attach_BuoiHocs), new Action<BuoiHoc>(this.detach_BuoiHocs));
+			this._BuoiHocs1 = new EntitySet<BuoiHoc>(new Action<BuoiHoc>(this.attach_BuoiHocs1), new Action<BuoiHoc>(this.detach_BuoiHocs1));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_N", DbType="Int")]
+		public System.Nullable<int> N
+		{
+			get
+			{
+				return this._N;
+			}
+			set
+			{
+				if ((this._N != value))
+				{
+					this.OnNChanging(value);
+					this.SendPropertyChanging();
+					this._N = value;
+					this.SendPropertyChanged("N");
+					this.OnNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenTiet", DbType="Int")]
+		public System.Nullable<int> TenTiet
+		{
+			get
+			{
+				return this._TenTiet;
+			}
+			set
+			{
+				if ((this._TenTiet != value))
+				{
+					this.OnTenTietChanging(value);
+					this.SendPropertyChanging();
+					this._TenTiet = value;
+					this.SendPropertyChanged("TenTiet");
+					this.OnTenTietChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThoiGianBatDau", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ThoiGianBatDau
+		{
+			get
+			{
+				return this._ThoiGianBatDau;
+			}
+			set
+			{
+				if ((this._ThoiGianBatDau != value))
+				{
+					this.OnThoiGianBatDauChanging(value);
+					this.SendPropertyChanging();
+					this._ThoiGianBatDau = value;
+					this.SendPropertyChanged("ThoiGianBatDau");
+					this.OnThoiGianBatDauChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThoiGianKetThuc", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ThoiGianKetThuc
+		{
+			get
+			{
+				return this._ThoiGianKetThuc;
+			}
+			set
+			{
+				if ((this._ThoiGianKetThuc != value))
+				{
+					this.OnThoiGianKetThucChanging(value);
+					this.SendPropertyChanging();
+					this._ThoiGianKetThuc = value;
+					this.SendPropertyChanged("ThoiGianKetThuc");
+					this.OnThoiGianKetThucChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc", Storage="_BuoiHocs", ThisKey="ID", OtherKey="IDTietBatDau")]
+		public EntitySet<BuoiHoc> BuoiHocs
+		{
+			get
+			{
+				return this._BuoiHocs;
+			}
+			set
+			{
+				this._BuoiHocs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ThoiGianTietHoc_BuoiHoc1", Storage="_BuoiHocs1", ThisKey="ID", OtherKey="IDTietKetThuc")]
+		public EntitySet<BuoiHoc> BuoiHocs1
+		{
+			get
+			{
+				return this._BuoiHocs1;
+			}
+			set
+			{
+				this._BuoiHocs1.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BuoiHocs(BuoiHoc entity)
+		{
+			this.SendPropertyChanging();
+			entity.ThoiGianTietHoc = this;
+		}
+		
+		private void detach_BuoiHocs(BuoiHoc entity)
+		{
+			this.SendPropertyChanging();
+			entity.ThoiGianTietHoc = null;
+		}
+		
+		private void attach_BuoiHocs1(BuoiHoc entity)
+		{
+			this.SendPropertyChanging();
+			entity.ThoiGianTietHoc1 = this;
+		}
+		
+		private void detach_BuoiHocs1(BuoiHoc entity)
+		{
+			this.SendPropertyChanging();
+			entity.ThoiGianTietHoc1 = null;
 		}
 	}
 }

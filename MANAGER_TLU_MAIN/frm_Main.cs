@@ -21,8 +21,9 @@ namespace AppMain
         {
             InitializeComponent();
             db = new DatabaseDataContext();
-            LoadForm(new frm_ShowMain()); 
-            
+            LoadForm(new frm_ShowMain());
+            LoadForm(new LAPLICH.frmLapLich());
+
         }
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -186,6 +187,16 @@ namespace AppMain
         private void btnQLSVLopMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadForm(new DIADIEM_LOPMONHOC.frmQLSVLopMonHoc());
+        }
+
+        private void btnQLLapLich_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           
+        }
+
+        private void btnTraCuuLapLich_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new LAPLICH.frmLapLich());
         }
     }
 }
