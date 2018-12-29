@@ -54,6 +54,7 @@ namespace LAPLICH
            flowAllLich.Controls.Clear();
            var list= (from a in db.BuoiHocs
              where a.IDLopMonHoc.Equals(IDLop)
+             orderby a.NgayHoc
              select new
              {
                  a.ID,

@@ -139,7 +139,6 @@ namespace HeThong.Func
                 }
             }
         }
-
         public static void phanQuyenBarManager(System.Windows.Forms.Form frm, NhanVien objnhanvien, DevExpress.XtraBars.BarManager BarManagerName)
         {
             if (objnhanvien.IsLock.Value) return;

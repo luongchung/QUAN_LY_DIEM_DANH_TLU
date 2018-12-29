@@ -22,7 +22,7 @@ namespace AppMain
             InitializeComponent();
             db = new DatabaseDataContext();
             LoadForm(new frm_ShowMain());
-            LoadForm(new LAPLICH.frmLapLich());
+            LoadForm(new DIEMDANH.frmQuanLyDiemDanh());
 
         }
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -79,7 +79,7 @@ namespace AppMain
           //  HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
             //set không cho đóng tab
             HeThong.Common.IsClose = false;
-            LoadForm(new DIADIEM_LOPMONHOC.frmQuanLyLopMonHoc());
+          
          
          
         }
@@ -175,8 +175,7 @@ namespace AppMain
 
         private void btnNhapSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            STUDENT.frmImportExcel frm = new STUDENT.frmImportExcel();
-            frm.Show();
+           
         }
 
         private void btnQLLopMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -191,12 +190,36 @@ namespace AppMain
 
         private void btnQLLapLich_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
+            LoadForm(new LAPLICH.frmQLLapLich());
         }
 
         private void btnTraCuuLapLich_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadForm(new LAPLICH.frmLapLich());
         }
+
+        private void btnConfigAd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            HeThong.ConfigDiaDiem obj = new ConfigDiaDiem();
+            obj.ShowDialog();
+        }
+
+        private void btnTrangchuDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new frm_ShowMain());
+        }
+
+        private void btnDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            var tmp = new DIEMDANH.frmAddDiemDanh();
+            tmp.Show();
+        }
+
+        private void btnQuanLyDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new DIEMDANH.frmQuanLyDiemDanh());
+        }
+
+     
     }
 }

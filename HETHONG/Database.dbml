@@ -135,20 +135,6 @@
       <Association Name="NhanVien_pqNhomNhanVien" Member="NhanVien" ThisKey="MaNV" OtherKey="ID" Type="NhanVien" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SinhVien" Member="SinhViens">
-    <Type Name="SinhVien">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenSV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IDKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Anh" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Association Name="SinhVien_DiemDanh" Member="DiemDanhs" ThisKey="ID" OtherKey="IDSinhVien" Type="DiemDanh" />
-      <Association Name="SinhVien_SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs" ThisKey="ID" OtherKey="IDSinhVien" Type="SinhVien_LopMonHoc" />
-    </Type>
-  </Table>
   <Table Name="dbo.SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs">
     <Type Name="SinhVien_LopMonHoc">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -169,6 +155,19 @@
       <Association Name="ThoiGianTietHoc_BuoiHoc1" Member="BuoiHocs1" ThisKey="ID" OtherKey="IDTietKetThuc" Type="BuoiHoc" />
     </Type>
   </Table>
+  <Table Name="dbo.SinhVien" Member="SinhViens">
+    <Type Name="SinhVien">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenSV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IDKhoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Association Name="SinhVien_DiemDanh" Member="DiemDanhs" ThisKey="ID" OtherKey="IDSinhVien" Type="DiemDanh" />
+      <Association Name="SinhVien_SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs" ThisKey="ID" OtherKey="IDSinhVien" Type="SinhVien_LopMonHoc" />
+    </Type>
+  </Table>
   <Function Name="dbo.AccessRightInsert" Method="AccessRightInsert">
     <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -183,5 +182,51 @@
     <Parameter Name="GroupID" Parameter="groupID" Type="System.Int32" DbType="Int" />
     <Parameter Name="IsAccessRight" Parameter="isAccessRight" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.tranhtrunglich" Method="tranhtrunglich">
+    <Parameter Name="IDDiaDiem" Parameter="iDDiaDiem" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDTietBD" Parameter="iDTietBD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDKetThuc" Parameter="iDKetThuc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Ngay" Parameter="ngay" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="tranhtrunglichResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenBuoiHoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDLopMonHoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTietBatDau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDTietKetThuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="IDDiaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayHoc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getDSLopHocTheoNgay" Method="getDSLopHocTheoNgay">
+    <Parameter Name="IDDiaDiem" Parameter="iDDiaDiem" Type="System.Int32" DbType="Int" />
+    <ElementType Name="getDSLopHocTheoNgayResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLopMonHoc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TenLopMonHoc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetLopMonHocTheoDiaDiem" Method="GetLopMonHocTheoDiaDiem">
+    <Parameter Name="IDDiaDiem" Parameter="iDDiaDiem" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetLopMonHocTheoDiaDiemResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenBuoiHoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDLopMonHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaLopMonHoc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TenLopMonHoc" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.getSVtheoIDBuoi" Method="getSVtheoIDBuoi">
+    <Parameter Name="idBuoi" Type="System.Int32" DbType="Int" />
+    <ElementType Name="getSVtheoIDBuoiResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenSV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DenLop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TGDiemDanh" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

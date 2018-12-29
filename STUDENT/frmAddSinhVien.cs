@@ -57,13 +57,14 @@ namespace STUDENT
                 try
                 {
                     db.SubmitChanges();
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
-                    HeThong.Thongbao.Canhbao(ex.ToString());
+                    HeThong.Thongbao.Loi(ex.ToString());
                 }
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+               
             }
             else
             {
@@ -77,13 +78,14 @@ namespace STUDENT
                 try
                 {
                     db.SubmitChanges();
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
-                    HeThong.Thongbao.Canhbao(ex.ToString());
+                    HeThong.Thongbao.Loi(ex.ToString());
                 }
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+                
             }
         }
         private bool checkvali_null()

@@ -17,7 +17,8 @@ namespace AppMain
 {
     public partial class frm_ShowMain : Form
     {
-      //  private int? ID_tmp=null;
+        //  private int? ID_tmp=null;
+        private string IDPhong;
         DatabaseDataContext db;
         public frm_ShowMain()
         {
@@ -27,11 +28,11 @@ namespace AppMain
             //socket.On(Socket.EVENT_CONNECT, () =>
             //{
             //    socket.Emit("huhu","Tao là Chung");
-
             //});
             //socket.On(Socket.EVENT_CONNECT_ERROR, () => {
             //    HeThong.Thongbao.Loi("Server Nodejs không hoạt đông");
             //});
+            
         }
 
         private void frm_ShowMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -50,22 +51,22 @@ namespace AppMain
                 Width = 800,
                 Height = 800,
             };
-            var writer = new BarcodeWriter();
-            writer.Format = BarcodeFormat.QR_CODE;
-            writer.Options = options;
-
-
-
+            IDPhong = HeThong.Common.getIDPhong().ToString();
             var qr = new ZXing.BarcodeWriter();
             qr.Options = options;
             qr.Format = ZXing.BarcodeFormat.QR_CODE;
-            var result = new Bitmap(qr.Write("ID:18567987  FB:17247234723"));
+            var result = new Bitmap(qr.Write(IDPhong));
             imgBarcode.Image = result;
+
+            txtPhong.Text = (from a in db.DiaDiemHocs where a.ID == int.Parse(IDPhong) select a.TenDiaDiem).Single().ToString();
+            lueLopMonHoc.Properties.DataSource = db.getDSLopHocTheoNgay(int.Parse(IDPhong));
         }
 
         private void frm_ShowMain_Load(object sender, EventArgs e)
         {
+            
             loadData();
+            
         }
 
         private void gvLoai_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -74,6 +75,35 @@ namespace AppMain
         }
 
         private void btnLoadAll_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void lueLopMonHoc_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lueLopMonHoc.EditValue == null) return;
+            lueBuoiHoc.Properties.DataSource = (from a in db.BuoiHocs
+                                                where a.IDLopMonHoc == (int)lueLopMonHoc.EditValue
+                                                select new
+                                                {
+                                                    a.ID,
+                                                    a.TenBuoiHoc
+                                                }).ToList();
+        }
+
+        private void btnNap_Click(object sender, EventArgs e)
+        {
+            if (lueBuoiHoc.EditValue == null) return;
+            gcSV.DataSource = db.getSVtheoIDBuoi(int.Parse(lueBuoiHoc.EditValue.ToString()));
+        }
+
+        private void gvSV_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
+        {
+            if (e.IsGetData)
+                e.Value = e.ListSourceRowIndex + 1;
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             loadData();
         }

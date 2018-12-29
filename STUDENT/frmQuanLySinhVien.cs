@@ -90,5 +90,11 @@ namespace STUDENT
                 }
             }
         }
+
+        private void btnNhapSV1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            STUDENT.frmImportExcel frm = new STUDENT.frmImportExcel();
+            frm.Show();
+        }
     }
 }

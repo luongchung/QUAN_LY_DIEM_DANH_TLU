@@ -44,6 +44,8 @@
             // 
             // txtNgay
             // 
+            this.txtNgay.Appearance.BackColor = System.Drawing.Color.White;
+            this.txtNgay.Appearance.Options.UseBackColor = true;
             this.txtNgay.Controls.Add(this.flowTietHoc);
             this.txtNgay.Controls.Add(this.panel1);
             this.txtNgay.Dock = System.Windows.Forms.DockStyle.Left;
@@ -52,6 +54,7 @@
             this.txtNgay.Size = new System.Drawing.Size(300, 1098);
             this.txtNgay.TabIndex = 0;
             this.txtNgay.Text = "13/11/2018";
+       
             // 
             // flowTietHoc
             // 
@@ -77,7 +80,7 @@
             // btngc
             // 
             this.btngc.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.btngc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btngc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btngc.ImageOptions.Image")));
             this.btngc.Location = new System.Drawing.Point(132, 141);
             this.btngc.Name = "btngc";
             this.btngc.Size = new System.Drawing.Size(114, 45);

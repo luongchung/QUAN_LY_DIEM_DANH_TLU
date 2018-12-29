@@ -64,13 +64,14 @@ namespace STAFF
                 try
                 {
                     db.SubmitChanges();
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.ToString());
+                    HeThong.Thongbao.Loi(ex.ToString());
                 }
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+               
             }
             else
             {
@@ -85,13 +86,15 @@ namespace STAFF
                 try
                 {
                     db.SubmitChanges();
+                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     HeThong.Thongbao.Loi(ex.ToString());
                 }
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+               
+               
             }
         }
         private bool checkvali_null()

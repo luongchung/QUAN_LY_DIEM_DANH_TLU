@@ -36,7 +36,7 @@ namespace HeThong
                 }
                 catch (Exception )
                 {
-                    MessageBox.Show("LỖI DATABASE");
+                    HeThong.Thongbao.Canhbao("LỖI DATABASE");
                 }
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();

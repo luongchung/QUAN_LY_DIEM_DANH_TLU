@@ -32,20 +32,20 @@
             this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.flowAllLich = new System.Windows.Forms.FlowLayoutPanel();
             this.lue = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.flowAllLich = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -57,25 +57,6 @@
             this.groupControl1.Size = new System.Drawing.Size(1527, 105);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Chọn lớp môn học:";
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.flowAllLich);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 105);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1527, 947);
-            this.panelControl1.TabIndex = 1;
-            // 
-            // flowAllLich
-            // 
-            this.flowAllLich.AutoScroll = true;
-            this.flowAllLich.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowAllLich.Location = new System.Drawing.Point(3, 3);
-            this.flowAllLich.Name = "flowAllLich";
-            this.flowAllLich.Size = new System.Drawing.Size(1521, 941);
-            this.flowAllLich.TabIndex = 0;
-            this.flowAllLich.WrapContents = false;
             // 
             // lue
             // 
@@ -129,6 +110,25 @@
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 893;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.flowAllLich);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 105);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1527, 947);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // flowAllLich
+            // 
+            this.flowAllLich.AutoScroll = true;
+            this.flowAllLich.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowAllLich.Location = new System.Drawing.Point(3, 3);
+            this.flowAllLich.Name = "flowAllLich";
+            this.flowAllLich.Size = new System.Drawing.Size(1521, 941);
+            this.flowAllLich.TabIndex = 0;
+            this.flowAllLich.WrapContents = false;
+            // 
             // frmLapLich
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -137,15 +137,15 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupControl1);
             this.Name = "frmLapLich";
-            this.Text = "Lập lịch";
+            this.Text = "Tra cứu lịch môn học";
             this.Load += new System.EventHandler(this.frmLapLich_Load);
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

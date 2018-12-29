@@ -10,7 +10,7 @@ namespace HeThong.Func
 {
    public class UserLogin
     {
-        public bool AddNewNV(NhanVien objnhanvien)
+        public bool addNhanVien(NhanVien objnhanvien)
         {
             using (DatabaseDataContext db = new DatabaseDataContext())
             {
@@ -26,7 +26,7 @@ namespace HeThong.Func
                 }
             }
         }
-        public bool EditUser(NhanVien objnhanvien)
+        public bool editNhanVien(NhanVien objnhanvien)
         {
             using (DatabaseDataContext db = new DatabaseDataContext())
             {

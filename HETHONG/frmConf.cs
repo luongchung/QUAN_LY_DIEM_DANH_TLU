@@ -22,7 +22,7 @@ namespace HeThong
             //string a = "Data Source=" + txtsv.Text + ";Initial Catalog=dbThanhChin;Integrated Security=True";
             //HeThong.Properties.Settings.Default.linqketnoi = a;
             //HeThong.Properties.Settings.Default.Save();
-            
+
         }
 
         private void frmConf_Load(object sender, EventArgs e)

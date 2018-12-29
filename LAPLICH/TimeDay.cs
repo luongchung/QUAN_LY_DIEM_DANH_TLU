@@ -67,5 +67,7 @@ namespace LAPLICH
         {
             HeThong.Thongbao.ThanhCong(GhiChu);
         }
+
+    
     }
 }

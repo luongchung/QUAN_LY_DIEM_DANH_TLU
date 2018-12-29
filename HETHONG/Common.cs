@@ -11,6 +11,26 @@ namespace HeThong
     {
         public static NhanVien User { get; set;}
         public static bool IsClose { get; set; }
+        public static bool setIDPhong(int Id)
+        {
+            bool kt = false;
+            try
+            {
+                HeThong.Properties.Settings.Default.IDDiaDiem = Id;
+                HeThong.Properties.Settings.Default.Save();
+                kt = true;
+            }
+            catch (Exception)
+            {
+
+            }
+            return kt;
+            
+        }
+        public static int getIDPhong()
+        {
+            return Properties.Settings.Default.IDDiaDiem;
+        }
         public static String getChuoiKetNoi()
         {
             return Properties.Settings.Default.linqketnoi.ToString().Trim();
