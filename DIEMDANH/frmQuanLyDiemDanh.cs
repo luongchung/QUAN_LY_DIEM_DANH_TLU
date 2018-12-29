@@ -20,6 +20,7 @@ namespace DIEMDANH
             InitializeComponent();
             IDphong = HeThong.Common.getIDPhong();
             db = new DatabaseDataContext();
+            barManager1.SetPopupContextMenu(gcMain, popupMenu1);
         }
         private void loadDanhSach()
         {
@@ -35,11 +36,7 @@ namespace DIEMDANH
                                                   }).ToList();
 
         }
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            if (lueBuoiHoc.EditValue == null) return;
-            gcMain.DataSource = (from a in db.getSVtheoIDBuoi((int)lueBuoiHoc.EditValue) select a).ToList();
-        }
+    
 
         private void frmQuanLyDiemDanh_Load(object sender, EventArgs e)
         {
@@ -62,6 +59,88 @@ namespace DIEMDANH
         {
             if (e.IsGetData)
                 e.Value = e.ListSourceRowIndex + 1;
+        }
+
+     
+        private void Reload()
+        {
+
+
+            if (lueBuoiHoc.EditValue == null) return;
+            gcMain.DataSource = (from a in db.getSVtheoIDBuoi((int)lueBuoiHoc.EditValue)
+                                 select new
+                                 {
+                                     a.DenLop,
+                                     a.ID,
+                                     a.MSV,
+                                     a.TenKhoa,
+                                     a.TenSV,
+                                     a.TGDiemDanh
+                                 }).ToList();
+        }
+
+        private void lueBuoiHoc_EditValueChanged(object sender, EventArgs e)
+        {
+            Reload();
+        }
+
+        private void btnDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (gvMain.GetFocusedRowCellValue("ID") == null)
+            {
+                Thongbao.Hoi("Mời bạn chọn hàng cần điểm danh.");
+            }
+            else
+            {
+                int id_tmp = (int)gvMain.GetFocusedRowCellValue("ID");
+                DialogResult f = Thongbao._CauHoi("Có chắc chắn điểm danh sinh viên");
+                if (f == System.Windows.Forms.DialogResult.Yes)
+                {
+                    var delete = (from a in db.DiemDanhs where a.ID == (int)id_tmp select a).Single();
+                    delete.DenLop = true;
+                    try
+                    {
+                        db.SubmitChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        HeThong.Thongbao.Canhbao(ex.ToString());
+                    }
+                    Reload();
+                }
+            }
+        }
+
+        private void btnHuyDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (gvMain.GetFocusedRowCellValue("ID") == null)
+            {
+                Thongbao.Hoi("Mời bạn chọn hàng cần hủy điểm danh.");
+            }
+            else
+            {
+                int id_tmp = (int)gvMain.GetFocusedRowCellValue("ID");
+                DialogResult f = Thongbao._CauHoi("Có chắc chắn hủy điểm danh sinh viên");
+                if (f == System.Windows.Forms.DialogResult.Yes)
+                {
+                    var delete = (from a in db.DiemDanhs where a.ID == (int)id_tmp select a).Single();
+                    delete.DenLop = false;
+                    try
+                    {
+                        db.SubmitChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        HeThong.Thongbao.Canhbao(ex.ToString());
+                    }
+                    Reload();
+                }
+            }
+        }
+
+        private void gcMain_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

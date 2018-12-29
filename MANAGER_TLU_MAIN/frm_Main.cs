@@ -22,7 +22,8 @@ namespace AppMain
             InitializeComponent();
             db = new DatabaseDataContext();
             LoadForm(new frm_ShowMain());
-            LoadForm(new DIEMDANH.frmQuanLyDiemDanh());
+            LoadForm(new DIEMDANH.frmTracuuDiemDanh());
+            //LoadForm(new DIEMDANH.frmQuanLyDiemDanh());
 
         }
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -220,6 +221,9 @@ namespace AppMain
             LoadForm(new DIEMDANH.frmQuanLyDiemDanh());
         }
 
-     
+        private void btnTraCuuDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new DIEMDANH.frmTracuuDiemDanh());
+        }
     }
 }

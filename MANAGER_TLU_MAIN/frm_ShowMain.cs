@@ -107,5 +107,16 @@ namespace AppMain
         {
             loadData();
         }
+
+        private void imgBarcode_DoubleClick(object sender, EventArgs e)
+        {
+            var fm =new MANAGER_TLU_MAIN.frmQR();
+            fm.ShowDialog();
+        }
+
+        private void imgBarcode_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

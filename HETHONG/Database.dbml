@@ -229,4 +229,17 @@
       <Column Name="TenKhoa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.getTTDiemDanh" Method="getTTDiemDanh">
+    <Parameter Name="IDSinhVien" Parameter="iDSinhVien" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="IDLopMonHoc" Parameter="iDLopMonHoc" Type="System.String" DbType="NVarChar(100)" />
+    <ElementType Name="getTTDiemDanhResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenBuoiHoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayHoc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TenDiaDiem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CoMat" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TGDiemDanh" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

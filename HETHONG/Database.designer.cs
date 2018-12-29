@@ -275,6 +275,13 @@ namespace HeThong
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idBuoi);
 			return ((ISingleResult<getSVtheoIDBuoiResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTTDiemDanh")]
+		public ISingleResult<getTTDiemDanhResult> getTTDiemDanh([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDSinhVien", DbType="NVarChar(100)")] string iDSinhVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDLopMonHoc", DbType="NVarChar(100)")] string iDLopMonHoc)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDSinhVien, iDLopMonHoc);
+			return ((ISingleResult<getTTDiemDanhResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BuoiHoc")]
@@ -4216,6 +4223,140 @@ namespace HeThong
 				if ((this._TenKhoa != value))
 				{
 					this._TenKhoa = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getTTDiemDanhResult
+	{
+		
+		private int _ID;
+		
+		private string _TenBuoiHoc;
+		
+		private System.Nullable<System.DateTime> _NgayHoc;
+		
+		private string _GhiChu;
+		
+		private string _TenDiaDiem;
+		
+		private System.Nullable<bool> _CoMat;
+		
+		private System.Nullable<System.DateTime> _TGDiemDanh;
+		
+		public getTTDiemDanhResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenBuoiHoc", DbType="NVarChar(50)")]
+		public string TenBuoiHoc
+		{
+			get
+			{
+				return this._TenBuoiHoc;
+			}
+			set
+			{
+				if ((this._TenBuoiHoc != value))
+				{
+					this._TenBuoiHoc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayHoc", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NgayHoc
+		{
+			get
+			{
+				return this._NgayHoc;
+			}
+			set
+			{
+				if ((this._NgayHoc != value))
+				{
+					this._NgayHoc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(1000)")]
+		public string GhiChu
+		{
+			get
+			{
+				return this._GhiChu;
+			}
+			set
+			{
+				if ((this._GhiChu != value))
+				{
+					this._GhiChu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenDiaDiem", DbType="NVarChar(50)")]
+		public string TenDiaDiem
+		{
+			get
+			{
+				return this._TenDiaDiem;
+			}
+			set
+			{
+				if ((this._TenDiaDiem != value))
+				{
+					this._TenDiaDiem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CoMat", DbType="Bit")]
+		public System.Nullable<bool> CoMat
+		{
+			get
+			{
+				return this._CoMat;
+			}
+			set
+			{
+				if ((this._CoMat != value))
+				{
+					this._CoMat = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TGDiemDanh", DbType="DateTime")]
+		public System.Nullable<System.DateTime> TGDiemDanh
+		{
+			get
+			{
+				return this._TGDiemDanh;
+			}
+			set
+			{
+				if ((this._TGDiemDanh != value))
+				{
+					this._TGDiemDanh = value;
 				}
 			}
 		}

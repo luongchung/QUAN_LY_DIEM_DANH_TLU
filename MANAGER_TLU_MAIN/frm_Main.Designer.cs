@@ -586,6 +586,7 @@
             this.btnTraCuuDiemDanh.Id = 38;
             this.btnTraCuuDiemDanh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTraCuuDiemDanh.ImageOptions.SvgImage")));
             this.btnTraCuuDiemDanh.Name = "btnTraCuuDiemDanh";
+            this.btnTraCuuDiemDanh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTraCuuDiemDanh_ItemClick);
             // 
             // btnDiemDanh
             // 
