@@ -113,6 +113,7 @@ namespace DIEMDANH
 
         private void btnHuyDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            
             if (gvMain.GetFocusedRowCellValue("ID") == null)
             {
                 Thongbao.Hoi("Mời bạn chọn hàng cần hủy điểm danh.");

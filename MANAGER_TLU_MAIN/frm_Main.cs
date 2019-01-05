@@ -22,8 +22,9 @@ namespace AppMain
             InitializeComponent();
             db = new DatabaseDataContext();
             LoadForm(new frm_ShowMain());
-            LoadForm(new DIEMDANH.frmTracuuDiemDanh());
+            //LoadForm(new DIEMDANH.frmTracuuDiemDanh());
             //LoadForm(new DIEMDANH.frmQuanLyDiemDanh());
+        
 
         }
         private void btnPhanQuyen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -77,7 +78,7 @@ namespace AppMain
             
             
             //Phân quyền
-          //  HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
+            HeThong.Func.PhanQuyen.phanQuyenRibon(this, Common.User, ribbon);
             //set không cho đóng tab
             HeThong.Common.IsClose = false;
           
@@ -224,6 +225,11 @@ namespace AppMain
         private void btnTraCuuDiemDanh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadForm(new DIEMDANH.frmTracuuDiemDanh());
+        }
+
+        private void btnTTDd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new frm_ShowMain());
         }
     }
 }

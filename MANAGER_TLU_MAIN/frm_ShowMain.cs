@@ -12,6 +12,7 @@ using ZXing.Common;
 using ZXing;
 using ZXing.QrCode;
 using Quobject.SocketIoClientDotNet.Client;
+using HeThong;
 
 namespace AppMain
 {
@@ -19,7 +20,10 @@ namespace AppMain
     {
         //  private int? ID_tmp=null;
         private string IDPhong;
+        private string Token;
         DatabaseDataContext db;
+        DiaDiemHoc obj;
+        private static Random random = new Random();
         public frm_ShowMain()
         {
             InitializeComponent();
@@ -27,7 +31,7 @@ namespace AppMain
             //var socket = IO.Socket("http://localhost:996");
             //socket.On(Socket.EVENT_CONNECT, () =>
             //{
-            //    socket.Emit("huhu","Tao là Chung");
+            //    socket.Emit("huhu","lương Chung");
             //});
             //socket.On(Socket.EVENT_CONNECT_ERROR, () => {
             //    HeThong.Thongbao.Loi("Server Nodejs không hoạt đông");
@@ -39,10 +43,40 @@ namespace AppMain
         {
             
         }
-
-
+        
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+        private void InsertToken(string IDphong,string Token)
+        {
+            obj = db.DiaDiemHocs.Single(p => p.ID == int.Parse(IDPhong));
+            obj.Token = Token;
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                Thongbao.Canhbao(ex.ToString());
+            }
+        }
+        private string getToken(String IdPhong)
+        {
+            String tmp = "";
+            tmp = (from a in db.DiaDiemHocs where a.ID.Equals(IdPhong) select a.Token).Single();
+            return tmp;
+        }
         private void loadData()
         {
+            IDPhong = Common.getIDPhong().ToString();
+            ///lấy ID phòng null
+            if (String.IsNullOrEmpty(IDPhong)) return;
+            Token = RandomString(8);
+            InsertToken(IDPhong,Token);
+
             QrCodeEncodingOptions options = new QrCodeEncodingOptions();
             options = new QrCodeEncodingOptions
             {
@@ -55,18 +89,18 @@ namespace AppMain
             var qr = new ZXing.BarcodeWriter();
             qr.Options = options;
             qr.Format = ZXing.BarcodeFormat.QR_CODE;
-            var result = new Bitmap(qr.Write(IDPhong));
+            Token = getToken(IDPhong);
+            String tmp = IDPhong+","+Token;
+            btnChangeToken.Text = Token;
+            var result = new Bitmap(qr.Write(tmp));
             imgBarcode.Image = result;
-
             txtPhong.Text = (from a in db.DiaDiemHocs where a.ID == int.Parse(IDPhong) select a.TenDiaDiem).Single().ToString();
             lueLopMonHoc.Properties.DataSource = db.getDSLopHocTheoNgay(int.Parse(IDPhong));
         }
 
         private void frm_ShowMain_Load(object sender, EventArgs e)
         {
-            
             loadData();
-            
         }
 
         private void gvLoai_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -87,7 +121,8 @@ namespace AppMain
                                                 select new
                                                 {
                                                     a.ID,
-                                                    a.TenBuoiHoc
+                                                    a.TenBuoiHoc,
+                                                    a.NgayHoc
                                                 }).ToList();
         }
 
@@ -105,7 +140,7 @@ namespace AppMain
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            loadData();
+            lueLopMonHoc.Properties.DataSource = db.getDSLopHocTheoNgay(int.Parse(IDPhong));
         }
 
         private void imgBarcode_DoubleClick(object sender, EventArgs e)
@@ -114,9 +149,16 @@ namespace AppMain
             fm.ShowDialog();
         }
 
-        private void imgBarcode_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
 
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            loadData();
+        }
+
+        private void lueBuoiHoc_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lueBuoiHoc.EditValue == null) return;
+            gcSV.DataSource = db.getSVtheoIDBuoi(int.Parse(lueBuoiHoc.EditValue.ToString()));
         }
     }
 }

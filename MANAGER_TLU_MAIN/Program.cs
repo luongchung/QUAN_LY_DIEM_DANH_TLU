@@ -43,7 +43,7 @@ namespace AppMain
             {
                 NhanVien objnhanvien = new NhanVien();
                 HeThong.Func.UserLogin ul = new HeThong.Func.UserLogin();
-                objnhanvien = ul.GetUserByMaNV("student","123456");
+                objnhanvien = ul.GetUserByMaNV("macdinh","123456");
                 if (objnhanvien != null)
                 {
                     //Kiểm tra tài khoản khóa/kích hoạt

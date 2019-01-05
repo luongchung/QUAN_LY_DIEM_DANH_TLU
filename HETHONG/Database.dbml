@@ -11,19 +11,10 @@
       <Column Name="IDDiaDiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NgayHoc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="BuoiHoc_DiemDanh" Member="DiemDanhs" ThisKey="ID" OtherKey="IDBuoiHoc" Type="DiemDanh" />
-      <Association Name="DiaDiemHoc_BuoiHoc" Member="DiaDiemHoc" ThisKey="IDDiaDiem" OtherKey="ID" Type="DiaDiemHoc" IsForeignKey="true" />
       <Association Name="LopMonHoc_BuoiHoc" Member="LopMonHoc" ThisKey="IDLopMonHoc" OtherKey="ID" Type="LopMonHoc" IsForeignKey="true" />
       <Association Name="ThoiGianTietHoc_BuoiHoc" Member="ThoiGianTietHoc" ThisKey="IDTietBatDau" OtherKey="ID" Type="ThoiGianTietHoc" IsForeignKey="true" />
       <Association Name="ThoiGianTietHoc_BuoiHoc1" Member="ThoiGianTietHoc1" ThisKey="IDTietKetThuc" OtherKey="ID" Type="ThoiGianTietHoc" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DiaDiemHoc" Member="DiaDiemHocs">
-    <Type Name="DiaDiemHoc">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenDiaDiem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="KhuNha" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Association Name="DiaDiemHoc_BuoiHoc" Member="BuoiHocs" ThisKey="ID" OtherKey="IDDiaDiem" Type="BuoiHoc" />
+      <Association Name="DiaDiemHoc_BuoiHoc" Member="DiaDiemHoc" ThisKey="IDDiaDiem" OtherKey="ID" Type="DiaDiemHoc" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DiemDanh" Member="DiemDanhs">
@@ -166,6 +157,16 @@
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Association Name="SinhVien_DiemDanh" Member="DiemDanhs" ThisKey="ID" OtherKey="IDSinhVien" Type="DiemDanh" />
       <Association Name="SinhVien_SinhVien_LopMonHoc" Member="SinhVien_LopMonHocs" ThisKey="ID" OtherKey="IDSinhVien" Type="SinhVien_LopMonHoc" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DiaDiemHoc" Member="DiaDiemHocs">
+    <Type Name="DiaDiemHoc">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDiaDiem" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KhuNha" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Token" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="DiaDiemHoc_BuoiHoc" Member="BuoiHocs" ThisKey="ID" OtherKey="IDDiaDiem" Type="BuoiHoc" />
     </Type>
   </Table>
   <Function Name="dbo.AccessRightInsert" Method="AccessRightInsert">

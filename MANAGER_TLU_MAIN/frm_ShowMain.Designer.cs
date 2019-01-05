@@ -32,7 +32,7 @@
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChangeToken = new DevExpress.XtraEditors.SimpleButton();
             this.btnNap = new DevExpress.XtraEditors.SimpleButton();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.btnLoad);
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.btnChangeToken);
             this.panelControl1.Controls.Add(this.btnNap);
             this.panelControl1.Controls.Add(this.label4);
             this.panelControl1.Controls.Add(this.label3);
@@ -83,23 +83,23 @@
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoad.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.ImageOptions.Image")));
-            this.btnLoad.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLoad.ImageOptions.SvgImage")));
-            this.btnLoad.Location = new System.Drawing.Point(618, 23);
+            this.btnLoad.Location = new System.Drawing.Point(627, 23);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(181, 68);
+            this.btnLoad.Size = new System.Drawing.Size(164, 68);
             this.btnLoad.TabIndex = 9;
-            this.btnLoad.Text = "Nạp";
+            this.btnLoad.Text = "Load";
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // simpleButton1
+            // btnChangeToken
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(414, 23);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(181, 68);
-            this.simpleButton1.TabIndex = 8;
-            this.simpleButton1.Text = "Nạp Token";
+            this.btnChangeToken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChangeToken.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnChangeToken.Location = new System.Drawing.Point(368, 23);
+            this.btnChangeToken.Name = "btnChangeToken";
+            this.btnChangeToken.Size = new System.Drawing.Size(242, 68);
+            this.btnChangeToken.TabIndex = 8;
+            this.btnChangeToken.Text = "Đổi Token";
+            this.btnChangeToken.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnNap
             // 
@@ -109,7 +109,7 @@
             this.btnNap.Name = "btnNap";
             this.btnNap.Size = new System.Drawing.Size(292, 68);
             this.btnNap.TabIndex = 7;
-            this.btnNap.Text = "Nạp danh sách sinh viên";
+            this.btnNap.Text = "Tra danh sách điểm danh";
             this.btnNap.Click += new System.EventHandler(this.btnNap_Click);
             // 
             // label4
@@ -141,12 +141,14 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lueBuoiHoc.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenBuoiHoc", "Buổi học")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TenBuoiHoc", "Buổi học"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NgayHoc", "Ngày học", 20, DevExpress.Utils.FormatType.DateTime, "dd/MM/yyyy", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lueBuoiHoc.Properties.DisplayMember = "TenBuoiHoc";
             this.lueBuoiHoc.Properties.NullText = "[Chọn buổi học]";
             this.lueBuoiHoc.Properties.ValueMember = "ID";
             this.lueBuoiHoc.Size = new System.Drawing.Size(325, 34);
             this.lueBuoiHoc.TabIndex = 4;
+            this.lueBuoiHoc.EditValueChanged += new System.EventHandler(this.lueBuoiHoc_EditValueChanged);
             // 
             // lueLopMonHoc
             // 
@@ -194,7 +196,6 @@
             this.imgBarcode.Size = new System.Drawing.Size(826, 861);
             this.imgBarcode.TabIndex = 0;
             this.imgBarcode.DoubleClick += new System.EventHandler(this.imgBarcode_DoubleClick);
-            this.imgBarcode.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgBarcode_MouseDoubleClick);
             // 
             // panelControl2
             // 
@@ -344,7 +345,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnChangeToken;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.SimpleButton btnLoad;
     }
