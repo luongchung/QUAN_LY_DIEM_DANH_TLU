@@ -127,19 +127,7 @@ namespace AppMain
         {
             //LoadForm(new HoaDon.frmTaoHoaDon());
         }
-        private void btnQLHoaDon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //LoadForm(new HoaDon.frmQLHoaDon());
-        }
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-         
-        }
-        private void btnTaoBC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-         
-        }
+     
         private void btnQLNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             LoadForm(new STAFF.frmMain());

@@ -386,7 +386,6 @@
             this.btnQLHoaDon.Id = 17;
             this.btnQLHoaDon.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnQLHoaDon.ImageOptions.SvgImage")));
             this.btnQLHoaDon.Name = "btnQLHoaDon";
-            this.btnQLHoaDon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQLHoaDon_ItemClick);
             // 
             // btnTaoBC
             // 
@@ -394,7 +393,6 @@
             this.btnTaoBC.Id = 18;
             this.btnTaoBC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoBC.ImageOptions.SvgImage")));
             this.btnTaoBC.Name = "btnTaoBC";
-            this.btnTaoBC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoBC_ItemClick);
             // 
             // btBaoCaoNam
             // 
@@ -439,7 +437,6 @@
             this.btnInBangGia.Id = 6;
             this.btnInBangGia.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInBangGia.ImageOptions.SvgImage")));
             this.btnInBangGia.Name = "btnInBangGia";
-            this.btnInBangGia.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // txtTongDanCu
             // 

@@ -92,8 +92,11 @@ namespace DIADIEM_LOPMONHOC
                 DialogResult f = Thongbao._CauHoi();
                 if (f == System.Windows.Forms.DialogResult.Yes)
                 {
-                    var delete = (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == (int)id_tmp && a.IDLopMonHoc==IDLop select a).Single();
-                    db.SinhVien_LopMonHocs.DeleteOnSubmit(delete);
+                    var delete = (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == (int)id_tmp && a.IDLopMonHoc==IDLop select a);
+                    foreach (var item in delete)
+                    {
+                        db.SinhVien_LopMonHocs.DeleteOnSubmit(item);
+                    }  
                     try { db.SubmitChanges(); }
                     catch (Exception) { MessageBox.Show("Xóa không thành công, vui lòng kiểm tra lại."); }
                     LoadSVfromLop();

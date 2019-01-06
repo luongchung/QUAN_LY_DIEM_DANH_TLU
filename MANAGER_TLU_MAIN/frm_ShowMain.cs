@@ -11,14 +11,11 @@ using System.Windows.Forms;
 using ZXing.Common;
 using ZXing;
 using ZXing.QrCode;
-using Quobject.SocketIoClientDotNet.Client;
-using HeThong;
 
 namespace AppMain
 {
     public partial class frm_ShowMain : Form
     {
-        //  private int? ID_tmp=null;
         private string IDPhong;
         private string Token;
         DatabaseDataContext db;
@@ -27,16 +24,7 @@ namespace AppMain
         public frm_ShowMain()
         {
             InitializeComponent();
-            db = new DatabaseDataContext();
-            //var socket = IO.Socket("http://localhost:996");
-            //socket.On(Socket.EVENT_CONNECT, () =>
-            //{
-            //    socket.Emit("huhu","lương Chung");
-            //});
-            //socket.On(Socket.EVENT_CONNECT_ERROR, () => {
-            //    HeThong.Thongbao.Loi("Server Nodejs không hoạt đông");
-            //});
-            
+            db = new DatabaseDataContext();         
         }
 
         private void frm_ShowMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -145,7 +133,11 @@ namespace AppMain
 
         private void imgBarcode_DoubleClick(object sender, EventArgs e)
         {
-            var fm =new MANAGER_TLU_MAIN.frmQR();
+            String tmp = IDPhong + "," + Token;
+            var fm = new MANAGER_TLU_MAIN.frmQR()
+            {
+                chuoi = tmp
+            };
             fm.ShowDialog();
         }
 
@@ -160,5 +152,7 @@ namespace AppMain
             if (lueBuoiHoc.EditValue == null) return;
             gcSV.DataSource = db.getSVtheoIDBuoi(int.Parse(lueBuoiHoc.EditValue.ToString()));
         }
+
+      
     }
 }

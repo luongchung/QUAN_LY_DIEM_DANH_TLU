@@ -15,9 +15,9 @@ namespace DIADIEM_LOPMONHOC
 {
     public partial class frmThemSV : DevExpress.XtraEditors.XtraForm
     {
-        private List<models.SinhVienCheck> arr=new List<models.SinhVienCheck>();
-        BindingList<models.SinhVienCheck> arrtmp = new BindingList<models.SinhVienCheck>();
-      //  private List<models.SinhVienCheck> arrtmp =new List<models.SinhVienCheck>();
+      /// <summary>
+      /// id lớp môn học
+      /// </summary>
         public int? ID { get; set; }
         private DatabaseDataContext db;
         public frmThemSV()
@@ -33,26 +33,18 @@ namespace DIADIEM_LOPMONHOC
         {
             if (ID != null)
             {
-                //xóa mảng;
-                arr.Clear();
-                arrtmp.Clear();
+         
                 var data = (from sv in db.SinhViens
                             select new
                             {
                                 sv.ID,
                                 sv.MSV,
                                 sv.TenSV,
-                                ID2 = (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == sv.ID && a.IDLopMonHoc == ID select a.ID).Single() == null ? 0 : (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == sv.ID && a.IDLopMonHoc == ID select a.ID).Single(),
                                 TenKhoa = (from g in db.Khoas where g.ID == sv.IDKhoa select g.TenKhoa).Single(),
                                 ThuocLop = (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == sv.ID && a.IDLopMonHoc == ID select a.ID).Count() > 0
                             }).ToList();
 
-                foreach (var i in data)
-                {
-                    arr.Add(new models.SinhVienCheck(i.ID, i.ID2, i.MSV, i.TenSV, i.TenKhoa, i.ThuocLop));
-                    arrtmp.Add(new models.SinhVienCheck(i.ID, i.ID2, i.MSV, i.TenSV, i.TenKhoa, i.ThuocLop));
-                }
-                gcMain.DataSource = arrtmp;
+                gcMain.DataSource = data;
 
             }
         }
@@ -76,7 +68,9 @@ namespace DIADIEM_LOPMONHOC
             }
             else
             {
-                int idsv = (int)gvMain.GetFocusedRowCellValue("ID");
+                int? idsv = (int)gvMain.GetFocusedRowCellValue("ID");
+                if (idsv == null) return;
+                if ((from a in db.SinhVien_LopMonHocs where a.IDSinhVien == (int)idsv && a.IDLopMonHoc == ID select a).Count() > 0) return;
                 SinhVien_LopMonHoc obj = new SinhVien_LopMonHoc();
                 obj.IDSinhVien = idsv;
                 obj.IDLopMonHoc = ID;
@@ -94,6 +88,7 @@ namespace DIADIEM_LOPMONHOC
         private void btnLoai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int idsv = (int)gvMain.GetFocusedRowCellValue("ID");
+            if ((from a in db.SinhVien_LopMonHocs where a.IDSinhVien == (int)idsv && a.IDLopMonHoc == ID select a).Count()==0)return;
             SinhVien_LopMonHoc obj =  (from a in db.SinhVien_LopMonHocs where a.IDSinhVien == (int)idsv && a.IDLopMonHoc==ID select a).Single();
             db.SinhVien_LopMonHocs.DeleteOnSubmit(obj);
             try

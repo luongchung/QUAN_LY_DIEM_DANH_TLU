@@ -19,11 +19,11 @@ namespace STUDENT
         {
             InitializeComponent();
             db = new DatabaseDataContext();
-
+        
         }
         private void loadNV()
         {
-            //HeThong.Func.PhanQuyen.phanQuyenBarManager(this,HeThong.Common.User, barManager1);
+            HeThong.Func.PhanQuyen.phanQuyenBarManager(this, HeThong.Common.User, barManagerSV);
             gcMain.DataSource =( from a in db.SinhViens
                                 select new
                                 {

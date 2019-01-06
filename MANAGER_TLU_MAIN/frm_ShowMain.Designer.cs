@@ -93,7 +93,7 @@
             // btnChangeToken
             // 
             this.btnChangeToken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChangeToken.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnChangeToken.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeToken.ImageOptions.Image")));
             this.btnChangeToken.Location = new System.Drawing.Point(368, 23);
             this.btnChangeToken.Name = "btnChangeToken";
             this.btnChangeToken.Size = new System.Drawing.Size(242, 68);

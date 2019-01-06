@@ -21,7 +21,7 @@ namespace STAFF
         }
         private void loadNV()
         {
-            // HeThong.Func.PhanQuyen.phanQuyenBarManager(this,HeThong.Common.User, barManager1);
+             HeThong.Func.PhanQuyen.phanQuyenBarManager(this,HeThong.Common.User, barManager1);
             gcMain.DataSource = (from a in db.NhanViens
                                  where a.IsGV.Equals(true)
                                 select new

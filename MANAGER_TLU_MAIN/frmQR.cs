@@ -14,7 +14,7 @@ namespace MANAGER_TLU_MAIN
 {
     public partial class frmQR : DevExpress.XtraEditors.XtraForm
     {
-        private String IDPhong;
+        public String chuoi { get; set; }
         public frmQR()
         {
             InitializeComponent();
@@ -34,11 +34,10 @@ namespace MANAGER_TLU_MAIN
                 Width = this.Width,
                 Height = this.Height,
             };
-            IDPhong = HeThong.Common.getIDPhong().ToString();
             var qr = new ZXing.BarcodeWriter();
             qr.Options = options;
             qr.Format = ZXing.BarcodeFormat.QR_CODE;
-            var result = new Bitmap(qr.Write(IDPhong));
+            var result = new Bitmap(qr.Write(chuoi));
             imgBarcode.Image = result;
         }
     }
