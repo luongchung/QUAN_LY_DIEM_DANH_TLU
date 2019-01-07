@@ -37,7 +37,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.txtHVT = new System.Windows.Forms.TextBox();
-            this.txtNgaySinh = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new DevExpress.XtraEditors.MemoEdit();
             this.ckNam = new System.Windows.Forms.CheckBox();
             this.ckNu = new System.Windows.Forms.CheckBox();
@@ -47,9 +46,12 @@
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtNgaySinh = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -119,13 +121,6 @@
             this.txtHVT.Name = "txtHVT";
             this.txtHVT.Size = new System.Drawing.Size(394, 33);
             this.txtHVT.TabIndex = 7;
-            // 
-            // txtNgaySinh
-            // 
-            this.txtNgaySinh.Location = new System.Drawing.Point(221, 242);
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Size = new System.Drawing.Size(394, 33);
-            this.txtNgaySinh.TabIndex = 9;
             // 
             // txtDiaChi
             // 
@@ -218,18 +213,36 @@
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 1221;
             // 
+            // txtNgaySinh
+            // 
+            this.txtNgaySinh.EditValue = null;
+            this.txtNgaySinh.Location = new System.Drawing.Point(221, 240);
+            this.txtNgaySinh.Name = "txtNgaySinh";
+            this.txtNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtNgaySinh.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            this.txtNgaySinh.Properties.DisplayFormat.FormatString = "{\"dd/MM/yyyy\"}";
+            this.txtNgaySinh.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtNgaySinh.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.txtNgaySinh.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtNgaySinh.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.txtNgaySinh.Size = new System.Drawing.Size(392, 34);
+            this.txtNgaySinh.TabIndex = 28;
+            // 
             // frmAddSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 544);
+            this.Controls.Add(this.txtNgaySinh);
             this.Controls.Add(this.lueKhoa);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.ckNu);
             this.Controls.Add(this.ckNam);
             this.Controls.Add(this.txtDiaChi);
-            this.Controls.Add(this.txtNgaySinh);
             this.Controls.Add(this.txtHVT);
             this.Controls.Add(this.txtMaNV);
             this.Controls.Add(this.label6);
@@ -245,6 +258,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,7 +275,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtMaNV;
         private System.Windows.Forms.TextBox txtHVT;
-        private System.Windows.Forms.TextBox txtNgaySinh;
         private DevExpress.XtraEditors.MemoEdit txtDiaChi;
         private System.Windows.Forms.CheckBox ckNam;
         private System.Windows.Forms.CheckBox ckNu;
@@ -270,5 +284,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.DateEdit txtNgaySinh;
     }
 }

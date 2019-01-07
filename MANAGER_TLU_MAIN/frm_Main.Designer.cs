@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageHeThong;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.ribbonPageGroup_HeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -101,10 +100,10 @@
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupExportBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.applicationmenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
-            this.image = new DevExpress.Utils.ImageCollection(this.components);
-            this.pageMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.theme = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.applicationmenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.image = new DevExpress.Utils.ImageCollection();
+            this.pageMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.theme = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.ribbonPageGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -605,7 +604,8 @@
             // 
             this.btnTTDd.Caption = "Trang chủ điểm danh";
             this.btnTTDd.Id = 41;
-            this.btnTTDd.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTTDd.ImageOptions.SvgImage")));
+            this.btnTTDd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTTDd.ImageOptions.Image")));
+            this.btnTTDd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTTDd.ImageOptions.LargeImage")));
             this.btnTTDd.Name = "btnTTDd";
             this.btnTTDd.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTTDd_ItemClick);
             // 
@@ -661,7 +661,7 @@
             this.ribbonPageGroup2,
             this.ribbonPageGroupTraCuu,
             this.ribbonPageGroupQLDiemDanh});
-            this.ribbonPageDiemDanh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageDichVu.ImageOptions.Image")));
+            this.ribbonPageDiemDanh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageDiemDanh.ImageOptions.Image")));
             this.ribbonPageDiemDanh.Name = "ribbonPageDiemDanh";
             this.ribbonPageDiemDanh.Text = "Điểm danh";
             // 
@@ -679,6 +679,7 @@
             // 
             // ribbonPageGroupQLDiemDanh
             // 
+            this.ribbonPageGroupQLDiemDanh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("ribbonPageGroupQLDiemDanh.ImageOptions.SvgImage")));
             this.ribbonPageGroupQLDiemDanh.ItemLinks.Add(this.btnQuanLyDiemDanh);
             this.ribbonPageGroupQLDiemDanh.Name = "ribbonPageGroupQLDiemDanh";
             this.ribbonPageGroupQLDiemDanh.Text = "QUẢN LÝ ĐIỂM DANH";
@@ -687,7 +688,7 @@
             // 
             this.ribbonPageLapLich.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroupQLLapLich});
-            this.ribbonPageLapLich.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage1.ImageOptions.Image")));
+            this.ribbonPageLapLich.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageLapLich.ImageOptions.Image")));
             this.ribbonPageLapLich.Name = "ribbonPageLapLich";
             this.ribbonPageLapLich.Text = "Lập lịch";
             // 

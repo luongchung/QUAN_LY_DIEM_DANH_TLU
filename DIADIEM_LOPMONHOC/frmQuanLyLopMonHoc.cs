@@ -92,8 +92,8 @@ namespace DIADIEM_LOPMONHOC
                 DialogResult f = Thongbao._CauHoi();
                 if (f == System.Windows.Forms.DialogResult.Yes)
                 {
-                    var delete = (from a in db.Khoas where a.ID == (int)id_tmp select a).Single();
-                    db.Khoas.DeleteOnSubmit(delete);
+                    var delete = (from a in db.LopMonHocs where a.ID == (int)id_tmp select a).Single();
+                    db.LopMonHocs.DeleteOnSubmit(delete);
                     try { db.SubmitChanges(); }
                     catch (Exception) { Thongbao.Hoi("Xóa không thành công, vui lòng kiểm tra lại."); }
                     loadNV();

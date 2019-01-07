@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyDiemDanh));
             this.lueBuoiHoc = new DevExpress.XtraEditors.LookUpEdit();
             this.lueLopMonHoc = new DevExpress.XtraEditors.LookUpEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnHuyAllDiemDanh = new DevExpress.XtraEditors.SimpleButton();
             this.gcMain = new DevExpress.XtraGrid.GridControl();
             this.gvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,14 +43,15 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btnDiemDanh = new DevExpress.XtraBars.BarButtonItem();
             this.btnHuyDiemDanh = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.lueBuoiHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLopMonHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -94,13 +97,25 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.btnHuyAllDiemDanh);
             this.groupControl1.Controls.Add(this.lueLopMonHoc);
             this.groupControl1.Controls.Add(this.lueBuoiHoc);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1371, 112);
+            this.groupControl1.Size = new System.Drawing.Size(1923, 112);
             this.groupControl1.TabIndex = 7;
+            // 
+            // btnHuyAllDiemDanh
+            // 
+            this.btnHuyAllDiemDanh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuyAllDiemDanh.ImageOptions.Image")));
+            this.btnHuyAllDiemDanh.Location = new System.Drawing.Point(834, 44);
+            this.btnHuyAllDiemDanh.Name = "btnHuyAllDiemDanh";
+            this.btnHuyAllDiemDanh.Size = new System.Drawing.Size(391, 49);
+            this.btnHuyAllDiemDanh.TabIndex = 7;
+            this.btnHuyAllDiemDanh.Text = "Hủy toàn bộ kết quả điểm danh";
+            this.btnHuyAllDiemDanh.Click += new System.EventHandler(this.btnHuyAllDiemDanh_Click);
             // 
             // gcMain
             // 
@@ -108,7 +123,7 @@
             this.gcMain.Location = new System.Drawing.Point(0, 112);
             this.gcMain.MainView = this.gvMain;
             this.gcMain.Name = "gcMain";
-            this.gcMain.Size = new System.Drawing.Size(1371, 852);
+            this.gcMain.Size = new System.Drawing.Size(1923, 852);
             this.gcMain.TabIndex = 8;
             this.gcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMain});
@@ -209,7 +224,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1371, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1923, 0);
             // 
             // barDockControlBottom
             // 
@@ -217,7 +232,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 964);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1371, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1923, 0);
             // 
             // barDockControlLeft
             // 
@@ -231,7 +246,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1371, 0);
+            this.barDockControlRight.Location = new System.Drawing.Point(1923, 0);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 964);
             // 
@@ -259,11 +274,21 @@
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(1246, 44);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(391, 49);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Xuất kết quả ra Excel";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // frmQuanLyDiemDanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 964);
+            this.ClientSize = new System.Drawing.Size(1923, 964);
             this.Controls.Add(this.gcMain);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -308,5 +333,7 @@
         private DevExpress.XtraBars.BarButtonItem btnDiemDanh;
         private DevExpress.XtraBars.BarButtonItem btnHuyDiemDanh;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraEditors.SimpleButton btnHuyAllDiemDanh;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,36 @@ namespace DIEMDANH
         }
         private void loadDanhSach()
         {
-            lueLopMonHoc.Properties.DataSource = (from a in db.LopMonHocs
-                                                  where a.IsKT == false
-                                                  select new
-                                                  {
-                                                      a.ID,
-                                                      a.MaLopMonHoc,
-                                                      TenMonHoc = a.TenLopMonHoc,
-                                                      GiangVien = (from b in db.NhanViens where b.ID.Equals(a.IDGiangVien) select b.TenNV).Single(),
-                                                      KetThuc = a.IsKT
-                                                  }).ToList();
+            if ((bool)HeThong.Common.User.IsGV)
+            {
+                lueLopMonHoc.Properties.DataSource = (from a in db.LopMonHocs
+                                                      where a.IDGiangVien ==Common.User.ID
+                                                      where a.IsKT == false
+                                                      select new
+                                                      {
+                                                          a.ID,
+                                                          a.MaLopMonHoc,
+                                                          TenMonHoc = a.TenLopMonHoc,
+                                                          GiangVien = (from b in db.NhanViens where b.ID.Equals(a.IDGiangVien) select b.TenNV).Single(),
+                                                          KetThuc = a.IsKT
+                                                      }).ToList();
+
+
+            }else
+            {
+                lueLopMonHoc.Properties.DataSource = (from a in db.LopMonHocs
+                                                      where a.IsKT == false
+                                                      select new
+                                                      {
+                                                          a.ID,
+                                                          a.MaLopMonHoc,
+                                                          TenMonHoc = a.TenLopMonHoc,
+                                                          GiangVien = (from b in db.NhanViens where b.ID.Equals(a.IDGiangVien) select b.TenNV).Single(),
+                                                          KetThuc = a.IsKT
+                                                      }).ToList();
+
+            }
+
 
         }
     
@@ -60,12 +81,8 @@ namespace DIEMDANH
             if (e.IsGetData)
                 e.Value = e.ListSourceRowIndex + 1;
         }
-
-     
         private void Reload()
         {
-
-
             if (lueBuoiHoc.EditValue == null) return;
             gcMain.DataSource = (from a in db.getSVtheoIDBuoi((int)lueBuoiHoc.EditValue)
                                  select new
@@ -142,6 +159,81 @@ namespace DIEMDANH
         private void gcMain_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHuyAllDiemDanh_Click(object sender, EventArgs e)
+        {
+            if (lueBuoiHoc.EditValue == null)
+            {
+                Thongbao.Canhbao("Bạn chưa chọn buổi học.");
+                return;
+            }
+
+
+            int id_Buoihoc = (int)lueBuoiHoc.EditValue;
+            DialogResult f = Thongbao._CauHoi("Có chắc chắn hủy kết quả điểm danh buổi này !");
+            if (f == System.Windows.Forms.DialogResult.Yes)
+            {
+                var deletes = (from a in db.DiemDanhs where a.IDBuoiHoc== id_Buoihoc select a);
+                foreach(var i in deletes)
+                {
+                    db.DiemDanhs.DeleteOnSubmit(i);
+                }
+                try
+                {
+                    db.SubmitChanges();
+                    Thongbao.ThanhCong("Hủy thành công !");
+                }
+                catch (Exception ex)
+                {
+                    HeThong.Thongbao.Canhbao(ex.ToString());
+                }
+                Reload();
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            XuatExcel(gcMain);
+        }
+        private void XuatExcel(DevExpress.XtraGrid.GridControl grid)
+        {
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "Excel (2003)(.xls)|*.xls|Excel (2010) (.xlsx)|*.xlsx ";
+                if (saveDialog.ShowDialog() != DialogResult.Cancel)
+                {
+                    string exportFilePath = saveDialog.FileName;
+                    string fileExtenstion = new FileInfo(exportFilePath).Extension;
+
+                    switch (fileExtenstion)
+                    {
+                        case ".xls":
+                            grid.ExportToXls(exportFilePath);
+                            break;
+                        case ".xlsx":
+                            grid.ExportToXlsx(exportFilePath);
+                            break;
+
+                    }
+
+                    if (File.Exists(exportFilePath))
+                    {
+                        try
+                        {
+                            System.Diagnostics.Process.Start(exportFilePath);
+                        }
+                        catch
+                        {
+                            HeThong.Thongbao.Loi("Không thể mở file.");
+                        }
+                    }
+                    else
+                    {
+                        HeThong.Thongbao.Loi("Không thể lưu file.");
+                    }
+                }
+            }
         }
     }
 }

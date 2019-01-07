@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,15 +93,47 @@ namespace STAFF
 
         private void btnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            try
-            {
-                gcMain.ExportToXlsx(@"C:\Users\LUONG CHUNG\Downloads");
-            }
-            catch
-            {
-
-            }
+            XuatExcel(gcMain);
             
+        }
+        private void XuatExcel(DevExpress.XtraGrid.GridControl grid)
+        {
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.Filter = "Excel (2003)(.xls)|*.xls|Excel (2010) (.xlsx)|*.xlsx ";
+                if (saveDialog.ShowDialog() != DialogResult.Cancel)
+                {
+                    string exportFilePath = saveDialog.FileName;
+                    string fileExtenstion = new FileInfo(exportFilePath).Extension;
+
+                    switch (fileExtenstion)
+                    {
+                        case ".xls":
+                            grid.ExportToXls(exportFilePath);
+                            break;
+                        case ".xlsx":
+                            grid.ExportToXlsx(exportFilePath);
+                            break;
+
+                    }
+
+                    if (File.Exists(exportFilePath))
+                    {
+                        try
+                        {
+                            System.Diagnostics.Process.Start(exportFilePath);
+                        }
+                        catch
+                        {
+                            HeThong.Thongbao.Loi("Không thể mở file.");
+                        }
+                    }
+                    else
+                    {
+                        HeThong.Thongbao.Loi("Không thể lưu file.");
+                    }
+                }
+            }
         }
     }
 }

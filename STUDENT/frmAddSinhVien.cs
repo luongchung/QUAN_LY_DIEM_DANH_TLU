@@ -32,7 +32,7 @@ namespace STUDENT
                 obj = db.SinhViens.Single(p => p.ID == ID);
                 txtMaNV.Text = obj.MSV;
                 txtHVT.Text = obj.TenSV;
-                txtNgaySinh.Text = obj.NgaySinh.ToString();
+                txtNgaySinh.EditValue= obj.NgaySinh;
                 txtDiaChi.Text = obj.DiaChi;
                 ckNam.Checked =(bool) obj.GioiTinh;
                 ckNu.Checked = !ckNam.Checked;
@@ -49,7 +49,7 @@ namespace STUDENT
                 if (checkvali_null()) return;
                 obj.MSV = txtMaNV.Text;
                 obj.TenSV = txtHVT.Text;
-                obj.NgaySinh = DateTime.Parse(txtNgaySinh.Text.ToString());
+                obj.NgaySinh = (DateTime)(txtNgaySinh.EditValue);
                 obj.DiaChi = txtDiaChi.Text;
                 obj.GioiTinh = ckNam.Checked;
                 obj.IDKhoa = (int)lueKhoa.EditValue;
@@ -71,7 +71,7 @@ namespace STUDENT
                 if (checkvali_null()) return;
                 obj.MSV = txtMaNV.Text;
                 obj.TenSV = txtHVT.Text;
-                obj.NgaySinh = DateTime.Parse(txtNgaySinh.Text.ToString());
+                obj.NgaySinh =(DateTime)(txtNgaySinh.EditValue);
                 obj.DiaChi = txtDiaChi.Text;
                 obj.GioiTinh = ckNam.Checked;
                 obj.IDKhoa = (int)lueKhoa.EditValue;
