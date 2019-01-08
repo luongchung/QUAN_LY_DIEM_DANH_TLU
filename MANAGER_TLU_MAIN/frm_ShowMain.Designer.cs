@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ShowMain));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ShowMain));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
             this.btnChangeToken = new DevExpress.XtraEditors.SimpleButton();
@@ -51,6 +51,7 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnXuat = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lueBuoiHoc.Properties)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnXuat);
             this.panelControl1.Controls.Add(this.btnLoad);
             this.panelControl1.Controls.Add(this.btnChangeToken);
             this.panelControl1.Controls.Add(this.btnNap);
@@ -105,11 +107,11 @@
             // 
             this.btnNap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNap.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNap.ImageOptions.Image")));
-            this.btnNap.Location = new System.Drawing.Point(1769, 23);
+            this.btnNap.Location = new System.Drawing.Point(1783, 23);
             this.btnNap.Name = "btnNap";
-            this.btnNap.Size = new System.Drawing.Size(292, 68);
+            this.btnNap.Size = new System.Drawing.Size(113, 68);
             this.btnNap.TabIndex = 7;
-            this.btnNap.Text = "Tra danh sách điểm danh";
+            this.btnNap.Text = "Tra";
             this.btnNap.Click += new System.EventHandler(this.btnNap_Click);
             // 
             // label4
@@ -135,7 +137,7 @@
             // lueBuoiHoc
             // 
             this.lueBuoiHoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lueBuoiHoc.Location = new System.Drawing.Point(1427, 41);
+            this.lueBuoiHoc.Location = new System.Drawing.Point(1438, 41);
             this.lueBuoiHoc.Name = "lueBuoiHoc";
             this.lueBuoiHoc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -232,6 +234,7 @@
             this.gridColumn6});
             this.gvSV.GridControl = this.gcSV;
             this.gvSV.Name = "gvSV";
+            this.gvSV.OptionsView.ShowAutoFilterRow = true;
             this.gvSV.OptionsView.ShowGroupPanel = false;
             this.gvSV.CustomUnboundColumnData += new DevExpress.XtraGrid.Views.Base.CustomColumnDataEventHandler(this.gvSV_CustomUnboundColumnData);
             // 
@@ -240,6 +243,7 @@
             this.gridColumn7.Caption = "STT";
             this.gridColumn7.FieldName = "gridColumn7";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
@@ -250,12 +254,14 @@
             this.gridColumn1.Caption = "ID";
             this.gridColumn1.FieldName = "ID";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Mã sinh viên";
-            this.gridColumn2.FieldName = "MSV";
+            this.gridColumn2.FieldName = "mSV";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 277;
@@ -263,8 +269,9 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Tên sinh viên";
-            this.gridColumn3.FieldName = "TenSV";
+            this.gridColumn3.FieldName = "tenSV";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 349;
@@ -272,8 +279,9 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Có mặt";
-            this.gridColumn4.FieldName = "DenLop";
+            this.gridColumn4.FieldName = "coMat";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 139;
@@ -283,8 +291,9 @@
             this.gridColumn5.Caption = "Thời gian điểm danh";
             this.gridColumn5.DisplayFormat.FormatString = "hh:mm dd/MM/yyyy";
             this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.gridColumn5.FieldName = "TGDiemDanh";
+            this.gridColumn5.FieldName = "tgDiemDanh";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 298;
@@ -292,11 +301,23 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Tên khoa";
-            this.gridColumn6.FieldName = "TenKhoa";
+            this.gridColumn6.FieldName = "tenKhoa";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
             this.gridColumn6.Width = 274;
+            // 
+            // btnXuat
+            // 
+            this.btnXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnXuat.Location = new System.Drawing.Point(1926, 23);
+            this.btnXuat.Name = "btnXuat";
+            this.btnXuat.Size = new System.Drawing.Size(114, 68);
+            this.btnXuat.TabIndex = 10;
+            this.btnXuat.Text = "Xuất";
+            this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
             // 
             // frm_ShowMain
             // 
@@ -348,5 +369,6 @@
         private DevExpress.XtraEditors.SimpleButton btnChangeToken;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.SimpleButton btnLoad;
+        private DevExpress.XtraEditors.SimpleButton btnXuat;
     }
 }

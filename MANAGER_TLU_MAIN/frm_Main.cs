@@ -219,5 +219,10 @@ namespace AppMain
         {
             LoadForm(new frm_ShowMain());
         }
+
+        private void btnTaoBC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LoadForm(new HeThong.frmBaoCao());
+        }
     }
 }

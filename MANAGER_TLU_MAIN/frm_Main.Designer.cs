@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageHeThong;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Main));
             this.ribbonPageGroup_HeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -99,11 +100,10 @@
             this.ribbonPageGroupQLLapLich = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroupExportBaoCao = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.applicationmenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
-            this.image = new DevExpress.Utils.ImageCollection();
-            this.pageMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.theme = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.applicationmenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
+            this.image = new DevExpress.Utils.ImageCollection(this.components);
+            this.pageMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.theme = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.ribbonPageGroupThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -392,6 +392,7 @@
             this.btnTaoBC.Id = 18;
             this.btnTaoBC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoBC.ImageOptions.SvgImage")));
             this.btnTaoBC.Name = "btnTaoBC";
+            this.btnTaoBC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoBC_ItemClick);
             // 
             // btBaoCaoNam
             // 
@@ -702,8 +703,7 @@
             // ribbonPageBaoCao
             // 
             this.ribbonPageBaoCao.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupBaoCao,
-            this.ribbonPageGroupExportBaoCao});
+            this.ribbonPageGroupBaoCao});
             this.ribbonPageBaoCao.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageBaoCao.ImageOptions.Image")));
             this.ribbonPageBaoCao.Name = "ribbonPageBaoCao";
             this.ribbonPageBaoCao.Text = "Báo cáo";
@@ -713,12 +713,6 @@
             this.ribbonPageGroupBaoCao.ItemLinks.Add(this.btnTaoBC);
             this.ribbonPageGroupBaoCao.Name = "ribbonPageGroupBaoCao";
             this.ribbonPageGroupBaoCao.Text = "Báo cáo";
-            // 
-            // ribbonPageGroupExportBaoCao
-            // 
-            this.ribbonPageGroupExportBaoCao.ItemLinks.Add(this.btnInThang);
-            this.ribbonPageGroupExportBaoCao.Name = "ribbonPageGroupExportBaoCao";
-            this.ribbonPageGroupExportBaoCao.Text = "Export";
             // 
             // applicationmenu
             // 
@@ -1484,7 +1478,6 @@
         private DevExpress.XtraBars.BarHeaderItem txtTongNhanVien;
         private DevExpress.XtraBars.BarButtonItem btnInThang;
         private DevExpress.XtraBars.BarButtonItem btInBaoCaoNam;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupExportBaoCao;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupThongKe;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup btnRobonQLNV;
         private DevExpress.XtraBars.BarButtonItem btnQLNV;

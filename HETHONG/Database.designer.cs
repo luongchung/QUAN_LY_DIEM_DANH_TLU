@@ -282,6 +282,18 @@ namespace HeThong
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDSinhVien, iDLopMonHoc);
 			return ((ISingleResult<getTTDiemDanhResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getTongSoBuoi", IsComposable=true)]
+		public System.Nullable<int> getTongSoBuoi([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDLopMonHoc", DbType="Int")] System.Nullable<int> iDLopMonHoc)
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDLopMonHoc).ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getSoBuoiDiHoc", IsComposable=true)]
+		public System.Nullable<int> getSoBuoiDiHoc([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDSinhVien", DbType="Int")] System.Nullable<int> iDSinhVien, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDLopMonHoc", DbType="Int")] System.Nullable<int> iDLopMonHoc)
+		{
+			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDSinhVien, iDLopMonHoc).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BuoiHoc")]

@@ -141,6 +141,7 @@
     <Compile Include="frm_ShowMain.Designer.cs">
       <DependentUpon>frm_ShowMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\sv11.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmQR.resx">

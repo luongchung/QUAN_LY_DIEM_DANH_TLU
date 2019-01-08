@@ -157,14 +157,14 @@
         <elementListCompartment Id="168f7bda-6b89-4d5f-862c-ba5beb84908e" absoluteBounds="0.51500000000000012, 2.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 2.48640055338542); (2.51041666666667 : 2.48640055338542 : JumpStart); (2.67708333333333 : 2.48640055338542 : JumpEnd); (3.5 : 2.48640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 2.48640055338542); (3.5 : 2.48640055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DatabaseDataContext/ThoiGianTietHoc/ThoiGianTietHoc_BuoiHoc" />
       <nodes>
         <classShapeMoniker Id="0d887363-8d60-4839-9d9f-22fc33df20c8" />
         <classShapeMoniker Id="be30e6c8-a8f5-4643-aa3a-76fb51597625" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 1.99320027669271); (2.51041666666667 : 1.99320027669271 : JumpStart); (2.67708333333333 : 1.99320027669271 : JumpEnd); (3.5 : 1.99320027669271)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 1.99320027669271); (2.51041666666667 : 1.99320027669271 : JumpStart); (2.67708333333333 : 1.99320027669271 : JumpEnd); (3.5 : 1.99320027669271)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DatabaseDataContext/ThoiGianTietHoc/ThoiGianTietHoc_BuoiHoc1" />
       <nodes>
         <classShapeMoniker Id="0d887363-8d60-4839-9d9f-22fc33df20c8" />
@@ -197,7 +197,7 @@
         <elementListCompartment Id="5dfa32b9-349a-4eb5-a7e5-14d0cc05e40b" absoluteBounds="0.64000000000000012, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.59375 : 4.25); (2.59375 : 1.28125); (3.5 : 1.28125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.59375 : 4.25); (2.59375 : 1.28125); (3.5 : 1.28125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DatabaseDataContext/DiaDiemHoc/DiaDiemHoc_BuoiHoc" />
       <nodes>
         <classShapeMoniker Id="4b3625f5-4b9c-4255-b3db-18279dca25f2" />

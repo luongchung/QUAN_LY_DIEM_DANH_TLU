@@ -76,6 +76,7 @@ namespace LAPLICH
                         NgayHoc = (DateTime)dateNgayHoc.EditValue
                     };
                     obj.ShowDialog();
+                    return;  
                 }
                 obj.IDLopMonHoc = IDLopMonHoc;
                 obj.TenBuoiHoc= txtTenBuoiHoc.Text;

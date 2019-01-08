@@ -61,7 +61,11 @@ namespace DIEMDANH
 
         private void frmQuanLyDiemDanh_Load(object sender, EventArgs e)
         {
+
+          
             loadDanhSach();
+
+
         }
 
         private void lueLopMonHoc_EditValueChanged(object sender, EventArgs e)
